@@ -1,0 +1,32 @@
+//
+// File created by:  xrun
+// Do not modify this file
+//
+-INCDIR
+/space/users/vasilist/ALU_TESTING/testbench
+-INCDIR
+/space/users/vasilist/ALU_TESTING/testbench/top
+-INCDIR
+/space/users/vasilist/ALU_TESTING/testbench/agent
+-INCDIR
+/space/users/vasilist/ALU_TESTING/testbench/env
+-INCDIR
+/space/users/vasilist/ALU_TESTING/testbench/tests
+-INCDIR
+/space/users/vasilist/ALU_TESTING/ALU_RTL
+-INCDIR
+/space/users/vasilist/ALU_TESTING/ALU_RTL/ALU
+-INCDIR
+/space/users/vasilist/ALU_TESTING/ALU_RTL/ALU/APB_CSR
+-INCDIR
+/space/users/vasilist/ALU_TESTING/ALU_RTL/ALU/Common
+-INCDIR
+/space/users/vasilist/ALU_TESTING/ALU_RTL/ALU/FIFO
+-sv
+-sv
+-I_INCDIR
+/tools/cdnc/xcelium/current/tools/methodology/UVM/CDNS-1.2/sv/src
+-DEFINE
+USE_PARAMETERIZED_WRAPPER
+-I_INCDIR
+/tools/cdnc/xcelium/current/tools/methodology/UVM/CDNS-1.2/additions/sv

@@ -1,0 +1,67 @@
+xrun(64): 22.03-s002: (c) Copyright 1995-2022 Cadence Design Systems, Inc.
+TOOL:	xrun(64)	22.03-s002: Started on Feb 13, 2026 at 15:52:34 UTC
+xrun
+	-timescale 1ns/1ns
+	-sysv
+	-access +rw
+	-uvm
+	-gui
+	-covoverwrite
+	-coverage ALL
+	-dutinst top_tb/dut/alu_top_module
+	-seed RANDOM
+	-f compile_files.f
+		+incdir+/space/users/vasilist/ALU_TESTING/testbench
+		+incdir+/space/users/vasilist/ALU_TESTING/testbench/top
+		+incdir+/space/users/vasilist/ALU_TESTING/testbench/agent
+		+incdir+/space/users/vasilist/ALU_TESTING/testbench/env
+		+incdir+/space/users/vasilist/ALU_TESTING/testbench/tests
+		+incdir+/space/users/vasilist/ALU_TESTING/ALU_RTL
+		+incdir+/space/users/vasilist/ALU_TESTING/ALU_RTL/ALU
+		+incdir+/space/users/vasilist/ALU_TESTING/ALU_RTL/ALU/APB_CSR
+		+incdir+/space/users/vasilist/ALU_TESTING/ALU_RTL/ALU/Common
+		+incdir+/space/users/vasilist/ALU_TESTING/ALU_RTL/ALU/FIFO
+		-sv
+		/space/users/vasilist/ALU_TESTING/testbench/top/top_pkg.sv
+		-sv
+		/space/users/vasilist/ALU_TESTING/testbench/agent/alu_pkg.sv
+	-uvmhome CDNS-1.2
+	+UVM_TESTNAME=random_test
+	-clean
+	-l test.log
+	+DUMPNAME=test.vcd
+	+UVM_VERBOSITY=UVM_HIGH
+
+   User defined plus("+") options:
+	+DUMPNAME=test.vcd
+	+UVM_VERBOSITY=UVM_HIGH
+
+xrun: *N,CLEAN: Removing existing directory ./xcelium.d.
+Compiling UVM packages (uvm_pkg.sv cdns_uvm_pkg.sv) using uvmhome location /tools/cdnc/xcelium/current/tools/methodology/UVM/CDNS-1.2
+xmvlog: *W,NOTIND: unable to access -INCDIR /space/users/vasilist/ALU_TESTING/testbench/tests (No such file or directory).
+xmvlog: *W,NOTIND: unable to access -INCDIR /space/users/vasilist/ALU_TESTING/ALU_RTL (No such file or directory).
+xmvlog: *W,NOTIND: unable to access -INCDIR /space/users/vasilist/ALU_TESTING/ALU_RTL/ALU (No such file or directory).
+xmvlog: *W,NOTIND: unable to access -INCDIR /space/users/vasilist/ALU_TESTING/ALU_RTL/ALU/APB_CSR (No such file or directory).
+xmvlog: *W,NOTIND: unable to access -INCDIR /space/users/vasilist/ALU_TESTING/ALU_RTL/ALU/Common (No such file or directory).
+xmvlog: *W,NOTIND: unable to access -INCDIR /space/users/vasilist/ALU_TESTING/ALU_RTL/ALU/FIFO (No such file or directory).
+xmvlog: *W,NOTIND: unable to access -INCDIR /space/users/vasilist/ALU_TESTING/testbench/tests (No such file or directory).
+xmvlog: *W,NOTIND: unable to access -INCDIR /space/users/vasilist/ALU_TESTING/ALU_RTL (No such file or directory).
+xmvlog: *W,NOTIND: unable to access -INCDIR /space/users/vasilist/ALU_TESTING/ALU_RTL/ALU (No such file or directory).
+xmvlog: *W,NOTIND: unable to access -INCDIR /space/users/vasilist/ALU_TESTING/ALU_RTL/ALU/APB_CSR (No such file or directory).
+xmvlog: *W,NOTIND: unable to access -INCDIR /space/users/vasilist/ALU_TESTING/ALU_RTL/ALU/Common (No such file or directory).
+xmvlog: *W,NOTIND: unable to access -INCDIR /space/users/vasilist/ALU_TESTING/ALU_RTL/ALU/FIFO (No such file or directory).
+file: /space/users/vasilist/ALU_TESTING/testbench/top/top_pkg.sv
+	package worklib.top_pkg:sv
+		errors: 0, warnings: 0
+file: /space/users/vasilist/ALU_TESTING/testbench/agent/alu_pkg.sv
+`include "sequences/base_seq.sv"
+                               |
+xmvlog: *E,COFILX (/space/users/vasilist/ALU_TESTING/testbench/agent/alu_seq_lib.sv,2|31): cannot open include file 'sequences/base_seq.sv'.
+	package worklib.alu_pkg:sv
+		errors: 1, warnings: 0
+xmvlog: *W,SPDUSD: Include directory /space/users/vasilist/ALU_TESTING/testbench given but not used.
+xmvlog: *W,SPDUSD: Include directory /space/users/vasilist/ALU_TESTING/testbench/env given but not used.
+	Total errors/warnings found outside modules and primitives:
+		errors: 0, warnings: 8
+xrun: *E,VLGERR: An error occurred during parsing.  Review the log file for errors with the code *E and fix those identified problems to proceed.  Exiting with code (status 1).
+TOOL:	xrun(64)	22.03-s002: Exiting on Feb 13, 2026 at 15:52:35 UTC  (total: 00:00:01)
