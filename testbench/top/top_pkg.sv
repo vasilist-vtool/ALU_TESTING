@@ -4,8 +4,6 @@ package top_pkg;
 
   import uvm_pkg::*;
 
-  import alu_pkg::*;
-
   `include "defines.sv"
 
 
