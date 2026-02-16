@@ -66,19 +66,6 @@ task virtual_sequence::post_start();
     phase.drop_objection(this);
 endtask: post_start
 
-
-`ifndef UVM_POST_VERSION_1_1
-function uvm_phase top_default_seq::get_starting_phase();
-  return starting_phase;
-endfunction: get_starting_phase
-
-
-function void virtual_sequence::set_starting_phase(uvm_phase phase);
-  starting_phase = phase;
-endfunction: set_starting_phase
-`endif
-
-
 // You can insert code here by setting top_seq_inc in file common.tpl
 
 `endif // TOP_SEQ_LIB_SV
