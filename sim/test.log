@@ -1,5 +1,5 @@
 xrun(64): 22.03-s002: (c) Copyright 1995-2022 Cadence Design Systems, Inc.
-TOOL:	xrun(64)	22.03-s002: Started on Feb 16, 2026 at 14:08:28 UTC
+TOOL:	xrun(64)	22.03-s002: Started on Feb 16, 2026 at 15:58:42 UTC
 xrun
 	-timescale 1ns/1ns
 	-sysv
@@ -30,6 +30,10 @@ xrun
 		/space/users/vasilist/ALU_TESTING/testbench/agent/alu_pkg.sv
 		-sv
 		/space/users/vasilist/ALU_TESTING/testbench/env/env_pkg.sv
+		-sv
+		/space/users/vasilist/ALU_TESTING/testbench/top/top_th.sv
+		-sv
+		/space/users/vasilist/ALU_TESTING/testbench/top/top_tb.sv
 	-uvmhome CDNS-1.2
 	+UVM_TESTNAME=random_test
 	-clean
@@ -72,52 +76,23 @@ xmvlog: *W,ENUMERR (/space/users/vasilist/ALU_TESTING/testbench/agent/apb_transa
 file: /space/users/vasilist/ALU_TESTING/testbench/env/env_pkg.sv
 	package worklib.env_pkg:sv
 		errors: 0, warnings: 0
+file: /space/users/vasilist/ALU_TESTING/testbench/top/top_th.sv
+	module worklib.top_th:sv
+		errors: 0, warnings: 0
+file: /space/users/vasilist/ALU_TESTING/testbench/top/top_tb.sv
+    m_config.is_active_alu       = UVM_ACTIVE; 
+                         |
+xmvlog: *E,NOTCLM (/space/users/vasilist/ALU_TESTING/testbench/top/top_tb.sv,34|25): is_active_alu is not a class item.
+    m_config.checks_enable_alu   = 1;          
+                             |
+xmvlog: *E,NOTCLM (/space/users/vasilist/ALU_TESTING/testbench/top/top_tb.sv,35|29): checks_enable_alu is not a class item.
+    m_config.coverage_enable_alu = 1;          
+                               |
+xmvlog: *E,NOTCLM (/space/users/vasilist/ALU_TESTING/testbench/top/top_tb.sv,36|31): coverage_enable_alu is not a class item.
+	module worklib.top_tb:sv
+		errors: 3, warnings: 0
 xmvlog: *W,SPDUSD: Include directory /space/users/vasilist/ALU_TESTING/testbench given but not used.
 	Total errors/warnings found outside modules and primitives:
 		errors: 0, warnings: 8
-		Caching library 'worklib' ....... Done
-	Elaborating the design hierarchy:
-	Top level design units:
-		alu_if
-xmelab: *W,DSEMEL: This SystemVerilog design will be simulated as per IEEE 1800-2009 SystemVerilog simulation semantics. Use -disable_sem2009 option for turning off SV 2009 simulation semantics.
-xmelab: *W,ICTNDU: No design unit selected for FSM extraction.
-	Building instance overlay tables: .................... Done
-	Enabling instrumentation for coverage types: block expression FSM toggle functional
-	Building instance specific data structures.
-	Loading native compiled code:     .................... Done
-	Design hierarchy summary:
-		                  Instances  Unique
-		Interfaces:               1       1
-		Verilog packages:         0       7
-		Registers:               10   11684
-		Named events:             0      12
-		Initial blocks:           0     161
-		Parallel blocks:          0      29
-		Assertions:               0       3
-		SV Class declarations:    0     347
-		Simulation timescale:   1ps
-	Writing initial simulation snapshot: worklib.alu_if:sv
-xmsim: *W,NOMTDGUI: Multi-Threaded Dumping is disabled for interactive debug mode.
-SVSEED set randomly from command line: -1489078388
-xmsim: *W,DSEM2009: This SystemVerilog design is simulated as per IEEE 1800-2009 SystemVerilog simulation semantics. Use -disable_sem2009 option for turning off SV 2009 simulation semantics.
-
--------------------------------------
-Relinquished control to SimVision...
-xcelium> 
-xcelium> source /tools/cdnc/xcelium/current/tools/xcelium/files/xmsimrc
-xcelium> source /tools/cdnc/xcelium/current/tools/methodology/UVM/CDNS-1.2/additions/sv/files/tcl/uvm_sim.tcl
-xcelium> ^C
-xcelium> exit
-xmsim: *W,NORUNCMD: No 'run' command issued.
-xmsim: *W,FSMNE: FSM Coverage was not enabled during elaboration.
-
-coverage setup:
-  workdir  :  ./cov_work
-  dutinst  :  alu_if(alu_if)
-  scope    :  scope
-  testname :  test_sv-1489078388
-
-coverage files:
-  model(design data) :  ./cov_work/scope/icc_05151f0a_00000000.ucm (reused)
-  data               :  ./cov_work/scope/test_sv-1489078388/icc_05151f0a_00000000.ucd
-TOOL:	xrun(64)	22.03-s002: Exiting on Feb 16, 2026 at 14:08:47 UTC  (total: 00:00:19)
+xrun: *E,VLGERR: An error occurred during parsing.  Review the log file for errors with the code *E and fix those identified problems to proceed.  Exiting with code (status 1).
+TOOL:	xrun(64)	22.03-s002: Exiting on Feb 16, 2026 at 15:58:43 UTC  (total: 00:00:01)

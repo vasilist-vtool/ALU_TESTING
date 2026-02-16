@@ -1,5 +1,9 @@
-`ifndef TOP_SEQ_LIB_SV
-`define TOP_SEQ_LIB_SV
+`ifndef VIRTUAL_SEQUENCE_SV
+`define VIRTUAL_SEQUENCE_SV
+
+
+
+
 
 class virtual_sequence extends uvm_sequence #(uvm_sequence_item);
 
@@ -37,8 +41,8 @@ task virtual_sequence::body();
     fork
       if (m_alu_agent.m_config.is_active == UVM_ACTIVE)
       begin
-        random_seq seq;
-        seq = random_seq::type_id::create("seq");
+        base_seq seq;
+        seq = base_seq::type_id::create("seq");
         seq.set_item_context(this, m_alu_agent.m_sequencer);
         if ( !seq.randomize() )
           `uvm_error(get_type_name(), "Failed to randomize sequence")
@@ -68,4 +72,4 @@ endtask: post_start
 
 // You can insert code here by setting top_seq_inc in file common.tpl
 
-`endif // TOP_SEQ_LIB_SV
+`endif // VIRTUAL_SEQUENCE_SV
