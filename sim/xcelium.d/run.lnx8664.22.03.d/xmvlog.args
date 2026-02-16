@@ -28,6 +28,8 @@ UVM_PLI
 /space/users/vasilist/ALU_TESTING/ALU_RTL/ALU/Common
 -INCDIR
 /space/users/vasilist/ALU_TESTING/ALU_RTL/ALU/FIFO
+-INCDIR
+/space/usersvasilist/ALU_TESTING/testbench/agent/sequences
 -sv
 /space/users/vasilist/ALU_TESTING/testbench/top/top_pkg.sv
 -sv

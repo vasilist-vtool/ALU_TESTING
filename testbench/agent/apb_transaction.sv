@@ -9,7 +9,7 @@ class apb_transaction extends uvm_sequence_item;
     int unsigned delay;
 
     logic ready;
-    logic slv_error;
+    logic slv_err;
 
     constraint c_addr {addr inside{[0:4]};}
     constraint c_delay {delay inside{[0:50]};}

@@ -1,0 +1,37 @@
+//
+// File created by:  xrun
+// Do not modify this file
+//
++DUMPNAME=test.vcd
++UVM_VERBOSITY=UVM_HIGH
++incdir+/space/users/vasilist/ALU_TESTING/testbench
++incdir+/space/users/vasilist/ALU_TESTING/testbench/top
++incdir+/space/users/vasilist/ALU_TESTING/testbench/agent
++incdir+/space/users/vasilist/ALU_TESTING/testbench/env
++incdir+/space/users/vasilist/ALU_TESTING/testbench/tests
++incdir+/space/users/vasilist/ALU_TESTING/ALU_RTL
++incdir+/space/users/vasilist/ALU_TESTING/ALU_RTL/ALU
++incdir+/space/users/vasilist/ALU_TESTING/ALU_RTL/ALU/APB_CSR
++incdir+/space/users/vasilist/ALU_TESTING/ALU_RTL/ALU/Common
++incdir+/space/users/vasilist/ALU_TESTING/ALU_RTL/ALU/FIFO
++incdir+/space/usersvasilist/ALU_TESTING/testbench/agent/sequences
+-loadpli
+/tools/cdnc/xcelium/current/tools/methodology/UVM/CDNS-1.2/additions/sv/lib/64bit/libuvmpli.so:uvm_pli_boot
+-timescale
+1ns/1ns
+-ACCESS
++rw
+-COVERAGE
+ALL
++UVM_TESTNAME=random_test
+-MESSAGES
+-XLMODE
+./xcelium.d/run.lnx8664.22.03.d
+-RUNMODE
+-CDSLIB
+./xcelium.d/run.lnx8664.22.03.d/cds.lib
+-HDLVAR
+./xcelium.d/run.lnx8664.22.03.d/hdl.var
+-WORK
+worklib
+-HASXLMODE

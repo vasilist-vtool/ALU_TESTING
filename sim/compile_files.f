@@ -9,6 +9,7 @@
 +incdir+/space/users/$(USER)/ALU_TESTING/ALU_RTL/ALU/APB_CSR 
 +incdir+/space/users/$(USER)/ALU_TESTING/ALU_RTL/ALU/Common
 +incdir+/space/users/$(USER)/ALU_TESTING/ALU_RTL/ALU/FIFO                  
++incdir+/space/users$(USER)/ALU_TESTING/testbench/agent/sequences
 
 //design files
 

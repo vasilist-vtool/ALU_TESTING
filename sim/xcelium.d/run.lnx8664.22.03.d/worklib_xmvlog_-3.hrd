@@ -22,6 +22,8 @@
 /space/users/vasilist/ALU_TESTING/ALU_RTL/ALU/Common
 -INCDIR
 /space/users/vasilist/ALU_TESTING/ALU_RTL/ALU/FIFO
+-INCDIR
+/space/usersvasilist/ALU_TESTING/testbench/agent/sequences
 -sv
 -sv
 -I_INCDIR
