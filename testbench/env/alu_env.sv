@@ -81,15 +81,15 @@ endfunction : end_of_elaboration_phase
 // You can remove run_phase by setting alu_env_generate_run_phase = no in file common.tpl
 
 task alu_env::run_phase(uvm_phase phase);
-//   top_default_seq vseq;
-//   vseq = top_default_seq::type_id::create("vseq");
-//   vseq.set_item_context(null, null);
-//   if ( !vseq.randomize() )
-//     `uvm_fatal(get_type_name(), "Failed to randomize virtual sequence")
-//   vseq.m_alu_agent = m_alu_agent;
-//   vseq.m_config    = m_config;   
-//   vseq.set_starting_phase(phase);
-//   vseq.start(null);
+  virtual_sequence vseq;
+  vseq = virtual_sequence::type_id::create("vseq");
+  vseq.set_item_context(null, null);
+  if ( !vseq.randomize() )
+    `uvm_fatal(get_type_name(), "Failed to randomize virtual sequence")
+  vseq.m_alu_agent = m_alu_agent;
+  vseq.m_config    = m_config;   
+  vseq.set_starting_phase(phase);
+  vseq.start(null);
 
   // You can insert code here by setting alu_env_append_to_run_phase in file common.tpl
 
