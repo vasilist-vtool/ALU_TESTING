@@ -1,5 +1,5 @@
 xrun(64): 22.03-s002: (c) Copyright 1995-2022 Cadence Design Systems, Inc.
-TOOL:	xrun(64)	22.03-s002: Started on Feb 16, 2026 at 11:04:32 UTC
+TOOL:	xrun(64)	22.03-s002: Started on Feb 16, 2026 at 11:26:04 UTC
 xrun
 	-timescale 1ns/1ns
 	-sysv
@@ -28,6 +28,8 @@ xrun
 		/space/users/vasilist/ALU_TESTING/testbench/agent/alu_if.sv
 		-sv
 		/space/users/vasilist/ALU_TESTING/testbench/agent/alu_pkg.sv
+		-sv
+		/space/users/vasilist/ALU_TESTING/testbench/env/env_pkg.sv
 	-uvmhome CDNS-1.2
 	+UVM_TESTNAME=random_test
 	-clean
@@ -67,10 +69,12 @@ file: /space/users/vasilist/ALU_TESTING/testbench/agent/alu_pkg.sv
 xmvlog: *W,ENUMERR (/space/users/vasilist/ALU_TESTING/testbench/agent/apb_transaction.sv,103|20): This assignment is a violation of SystemVerilog strong typing rules for enumeration datatypes.
 	package worklib.alu_pkg:sv
 		errors: 0, warnings: 1
+file: /space/users/vasilist/ALU_TESTING/testbench/env/env_pkg.sv
+	package worklib.env_pkg:sv
+		errors: 0, warnings: 0
 xmvlog: *W,SPDUSD: Include directory /space/users/vasilist/ALU_TESTING/testbench given but not used.
-xmvlog: *W,SPDUSD: Include directory /space/users/vasilist/ALU_TESTING/testbench/env given but not used.
 	Total errors/warnings found outside modules and primitives:
-		errors: 0, warnings: 9
+		errors: 0, warnings: 8
 		Caching library 'worklib' ....... Done
 	Elaborating the design hierarchy:
 	Top level design units:
@@ -84,17 +88,17 @@ xmelab: *W,ICTNDU: No design unit selected for FSM extraction.
 	Design hierarchy summary:
 		                  Instances  Unique
 		Interfaces:               1       1
-		Verilog packages:         0       6
-		Registers:               10   11623
+		Verilog packages:         0       7
+		Registers:               10   11640
 		Named events:             0      12
-		Initial blocks:           0     158
+		Initial blocks:           0     159
 		Parallel blocks:          0      28
 		Assertions:               0       3
-		SV Class declarations:    0     344
+		SV Class declarations:    0     345
 		Simulation timescale:   1ps
 	Writing initial simulation snapshot: worklib.alu_if:sv
 xmsim: *W,NOMTDGUI: Multi-Threaded Dumping is disabled for interactive debug mode.
-SVSEED set randomly from command line: 327536895
+SVSEED set randomly from command line: -1419386099
 xmsim: *W,DSEM2009: This SystemVerilog design is simulated as per IEEE 1800-2009 SystemVerilog simulation semantics. Use -disable_sem2009 option for turning off SV 2009 simulation semantics.
 
 -------------------------------------
@@ -111,9 +115,9 @@ coverage setup:
   workdir  :  ./cov_work
   dutinst  :  alu_if(alu_if)
   scope    :  scope
-  testname :  test_sv327536895
+  testname :  test_sv-1419386099
 
 coverage files:
   model(design data) :  ./cov_work/scope/icc_05151f0a_00000000.ucm (reused)
-  data               :  ./cov_work/scope/test_sv327536895/icc_05151f0a_00000000.ucd
-TOOL:	xrun(64)	22.03-s002: Exiting on Feb 16, 2026 at 11:04:46 UTC  (total: 00:00:14)
+  data               :  ./cov_work/scope/test_sv-1419386099/icc_05151f0a_00000000.ucd
+TOOL:	xrun(64)	22.03-s002: Exiting on Feb 16, 2026 at 11:26:20 UTC  (total: 00:00:16)
