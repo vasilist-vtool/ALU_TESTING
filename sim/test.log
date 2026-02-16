@@ -1,5 +1,5 @@
 xrun(64): 22.03-s002: (c) Copyright 1995-2022 Cadence Design Systems, Inc.
-TOOL:	xrun(64)	22.03-s002: Started on Feb 16, 2026 at 10:54:19 UTC
+TOOL:	xrun(64)	22.03-s002: Started on Feb 16, 2026 at 11:04:32 UTC
 xrun
 	-timescale 1ns/1ns
 	-sysv
@@ -94,7 +94,7 @@ xmelab: *W,ICTNDU: No design unit selected for FSM extraction.
 		Simulation timescale:   1ps
 	Writing initial simulation snapshot: worklib.alu_if:sv
 xmsim: *W,NOMTDGUI: Multi-Threaded Dumping is disabled for interactive debug mode.
-SVSEED set randomly from command line: -956965312
+SVSEED set randomly from command line: 327536895
 xmsim: *W,DSEM2009: This SystemVerilog design is simulated as per IEEE 1800-2009 SystemVerilog simulation semantics. Use -disable_sem2009 option for turning off SV 2009 simulation semantics.
 
 -------------------------------------
@@ -111,9 +111,9 @@ coverage setup:
   workdir  :  ./cov_work
   dutinst  :  alu_if(alu_if)
   scope    :  scope
-  testname :  test_sv-956965312
+  testname :  test_sv327536895
 
 coverage files:
   model(design data) :  ./cov_work/scope/icc_05151f0a_00000000.ucm (reused)
-  data               :  ./cov_work/scope/test_sv-956965312/icc_05151f0a_00000000.ucd
-TOOL:	xrun(64)	22.03-s002: Exiting on Feb 16, 2026 at 10:54:33 UTC  (total: 00:00:14)
+  data               :  ./cov_work/scope/test_sv327536895/icc_05151f0a_00000000.ucd
+TOOL:	xrun(64)	22.03-s002: Exiting on Feb 16, 2026 at 11:04:46 UTC  (total: 00:00:14)
