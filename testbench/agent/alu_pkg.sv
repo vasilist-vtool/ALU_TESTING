@@ -22,8 +22,8 @@ package alu_pkg;
 
 
 `include "apb_transaction.sv"
-//   `include "alu_config.sv"
-//   `include "alu_driver.sv"
+`include "alu_config.sv"
+`include "alu_driver.sv"
 //   `include "alu_monitor.sv"
 `include "alu_sequencer.sv"
 //   `include "alu_coverage.sv"

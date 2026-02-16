@@ -33,6 +33,8 @@ UVM_PLI
 -sv
 /space/users/vasilist/ALU_TESTING/testbench/top/top_pkg.sv
 -sv
+/space/users/vasilist/ALU_TESTING/testbench/agent/alu_if.sv
+-sv
 /space/users/vasilist/ALU_TESTING/testbench/agent/alu_pkg.sv
 -CDSLIB
 ./xcelium.d/run.lnx8664.22.03.d/cdsrun.lib

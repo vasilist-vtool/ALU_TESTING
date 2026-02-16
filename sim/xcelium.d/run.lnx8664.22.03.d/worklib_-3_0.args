@@ -27,6 +27,7 @@
 /space/usersvasilist/ALU_TESTING/testbench/agent/sequences
 -sv
 -sv
+-sv
 -I_INCDIR
 /tools/cdnc/xcelium/current/tools/methodology/UVM/CDNS-1.2/sv/src
 -DEFINE

@@ -7,7 +7,7 @@ interface alu_if();
   timeunit      1ns;
   timeprecision 1ps;
 
-  import alu_pkg::*;
+  //import alu_pkg::*;
 
   logic [`ADDR_W:0] paddr;
   logic [(`APB_BUS_SIZE-1):0] pwdata;

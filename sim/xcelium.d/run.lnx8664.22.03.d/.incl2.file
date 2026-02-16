@@ -30,6 +30,10 @@
 /space/users/vasilist/ALU_TESTING/testbench/top/defines.sv
 /space/users/vasilist/ALU_TESTING/testbench/agent/apb_transaction.sv
 /space/users/vasilist/ALU_TESTING/testbench/agent/apb_transaction.sv
+/space/users/vasilist/ALU_TESTING/testbench/agent/alu_config.sv
+/space/users/vasilist/ALU_TESTING/testbench/agent/alu_config.sv
+/space/users/vasilist/ALU_TESTING/testbench/agent/alu_driver.sv
+/space/users/vasilist/ALU_TESTING/testbench/agent/alu_driver.sv
 /space/users/vasilist/ALU_TESTING/testbench/agent/alu_sequencer.sv
 /space/users/vasilist/ALU_TESTING/testbench/agent/alu_sequencer.sv
 /space/users/vasilist/ALU_TESTING/testbench/agent/alu_seq_lib.sv

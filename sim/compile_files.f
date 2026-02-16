@@ -40,7 +40,7 @@
 
 -sv /space/users/$(USER)/ALU_TESTING/testbench/top/top_pkg.sv
 
-// -sv /space/users/$(USER)/ALU_TESTING/testbench/agent/interface.sv
+-sv /space/users/$(USER)/ALU_TESTING/testbench/agent/alu_if.sv
 -sv /space/users/$(USER)/ALU_TESTING/testbench/agent/alu_pkg.sv
 // -sv /space/users/$(USER)/ALU_TESTING/testbench/env/env_pkg.sv
 // -sv /space/users/$(USER)/ALU_TESTING/testbench/tests/alu_test_pkg.sv

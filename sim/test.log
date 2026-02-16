@@ -1,5 +1,5 @@
 xrun(64): 22.03-s002: (c) Copyright 1995-2022 Cadence Design Systems, Inc.
-TOOL:	xrun(64)	22.03-s002: Started on Feb 16, 2026 at 08:46:17 UTC
+TOOL:	xrun(64)	22.03-s002: Started on Feb 16, 2026 at 10:24:04 UTC
 xrun
 	-timescale 1ns/1ns
 	-sysv
@@ -24,6 +24,8 @@ xrun
 		+incdir+/space/usersvasilist/ALU_TESTING/testbench/agent/sequences
 		-sv
 		/space/users/vasilist/ALU_TESTING/testbench/top/top_pkg.sv
+		-sv
+		/space/users/vasilist/ALU_TESTING/testbench/agent/alu_if.sv
 		-sv
 		/space/users/vasilist/ALU_TESTING/testbench/agent/alu_pkg.sv
 	-uvmhome CDNS-1.2
@@ -56,6 +58,9 @@ xmvlog: *W,NOTIND: unable to access -INCDIR /space/usersvasilist/ALU_TESTING/tes
 file: /space/users/vasilist/ALU_TESTING/testbench/top/top_pkg.sv
 	package worklib.top_pkg:sv
 		errors: 0, warnings: 0
+file: /space/users/vasilist/ALU_TESTING/testbench/agent/alu_if.sv
+	interface worklib.alu_if:sv
+		errors: 0, warnings: 0
 file: /space/users/vasilist/ALU_TESTING/testbench/agent/alu_pkg.sv
   `uvm_unpack_int(op)      
                     |
@@ -69,45 +74,27 @@ xmvlog: *W,SPDUSD: Include directory /space/users/vasilist/ALU_TESTING/testbench
 		Caching library 'worklib' ....... Done
 	Elaborating the design hierarchy:
 	Top level design units:
-		uvm_pkg
-		cdns_uvmapi
-		cdns_assert2uvm_pkg
-		cdns_uvm_pkg
-		top_pkg
-		alu_pkg
+		alu_if
 xmelab: *W,DSEMEL: This SystemVerilog design will be simulated as per IEEE 1800-2009 SystemVerilog simulation semantics. Use -disable_sem2009 option for turning off SV 2009 simulation semantics.
 xmelab: *W,ICTNDU: No design unit selected for FSM extraction.
-  `uvm_unpack_int(op)      
-                    |
-xmelab: *W,ENUMERR (../testbench/agent/apb_transaction.sv,103|20): This assignment is a violation of SystemVerilog strong typing rules for enumeration datatypes.
 	Building instance overlay tables: .................... Done
 	Enabling instrumentation for coverage types: block expression FSM toggle functional
-	Generating native compiled code:
-		worklib.alu_pkg:sv <0x59eea251>
-			streams: 327, words: 406386
-		worklib.cdns_uvm_pkg:sv <0x44bbbad1>
-			streams: 249, words: 393728
-		worklib.cdns_uvmapi:svp <0x69c280e4>
-			streams:  27, words: 29972
-		worklib.cdns_assert2uvm_pkg:sv <0x767c4e50>
-			streams:   3, words:  1818
-		worklib.uvm_pkg:sv <0x1ca7f4e8>
-			streams: 5939, words: 9072089
 	Building instance specific data structures.
 	Loading native compiled code:     .................... Done
 	Design hierarchy summary:
-		                       Instances  Unique
-		Verilog packages:              6       6
-		Registers:                 15847   11573
-		Named events:                  4      12
-		Initial blocks:              301     156
-		Parallel blocks:              27      28
-		Assertions:                    3       3
-		SV Class declarations:       225     341
-		SV Class specializations:    420     420
-	Writing initial simulation snapshot: worklib.alu_pkg:sv
+		                  Instances  Unique
+		Interfaces:               1       1
+		Verilog packages:         0       6
+		Registers:               10   11604
+		Named events:             0      12
+		Initial blocks:           0     157
+		Parallel blocks:          0      28
+		Assertions:               0       3
+		SV Class declarations:    0     343
+		Simulation timescale:   1ps
+	Writing initial simulation snapshot: worklib.alu_if:sv
 xmsim: *W,NOMTDGUI: Multi-Threaded Dumping is disabled for interactive debug mode.
-SVSEED set randomly from command line: -964572819
+SVSEED set randomly from command line: -1307191251
 xmsim: *W,DSEM2009: This SystemVerilog design is simulated as per IEEE 1800-2009 SystemVerilog simulation semantics. Use -disable_sem2009 option for turning off SV 2009 simulation semantics.
 
 -------------------------------------
@@ -118,9 +105,15 @@ xcelium> source /tools/cdnc/xcelium/current/tools/methodology/UVM/CDNS-1.2/addit
 xcelium> ^C
 xcelium> exit
 xmsim: *W,NORUNCMD: No 'run' command issued.
+xmsim: *W,FSMNE: FSM Coverage was not enabled during elaboration.
 
 coverage setup:
   workdir  :  ./cov_work
+  dutinst  :  alu_if(alu_if)
   scope    :  scope
-  testname :  test
-TOOL:	xrun(64)	22.03-s002: Exiting on Feb 16, 2026 at 08:46:34 UTC  (total: 00:00:17)
+  testname :  test_sv-1307191251
+
+coverage files:
+  model(design data) :  ./cov_work/scope/icc_05151f0a_00000000.ucm
+  data               :  ./cov_work/scope/test_sv-1307191251/icc_05151f0a_00000000.ucd
+TOOL:	xrun(64)	22.03-s002: Exiting on Feb 16, 2026 at 10:24:18 UTC  (total: 00:00:14)

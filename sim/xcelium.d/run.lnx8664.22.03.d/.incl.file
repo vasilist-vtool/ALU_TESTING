@@ -73,6 +73,12 @@
 ./apb_transaction.sv
 /space/users/vasilist/ALU_TESTING/testbench/apb_transaction.sv
 /space/users/vasilist/ALU_TESTING/testbench/top/apb_transaction.sv
+./alu_config.sv
+/space/users/vasilist/ALU_TESTING/testbench/alu_config.sv
+/space/users/vasilist/ALU_TESTING/testbench/top/alu_config.sv
+./alu_driver.sv
+/space/users/vasilist/ALU_TESTING/testbench/alu_driver.sv
+/space/users/vasilist/ALU_TESTING/testbench/top/alu_driver.sv
 ./alu_sequencer.sv
 /space/users/vasilist/ALU_TESTING/testbench/alu_sequencer.sv
 /space/users/vasilist/ALU_TESTING/testbench/top/alu_sequencer.sv
