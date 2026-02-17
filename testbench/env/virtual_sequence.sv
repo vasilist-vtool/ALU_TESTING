@@ -70,6 +70,4 @@ task virtual_sequence::post_start();
     phase.drop_objection(this);
 endtask: post_start
 
-// You can insert code here by setting top_seq_inc in file common.tpl
-
-`endif // VIRTUAL_SEQUENCE_SV
+`endif

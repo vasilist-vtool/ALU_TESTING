@@ -1,18 +1,3 @@
-// You can insert code here by setting file_header_inc in file common.tpl
-
-//=============================================================================
-// Project  : generated_tb
-//
-// File Name: alu_seq_lib.sv
-//
-//
-// Version:   1.0
-//
-// Code created by Easier UVM Code Generator version 2017-01-19 on Fri Feb 13 16:14:11 2026
-//=============================================================================
-// Description: Sequence for agent alu
-//=============================================================================
-
 `ifndef BASE_SEQ_SV
 `define BASE_SEQ_SV
 
@@ -46,5 +31,5 @@ task base_seq::body();
   `uvm_info(get_type_name(), "Default sequence completed", UVM_HIGH)
 endtask : body
 
-`endif // BASE_SEQ_SV
+`endif
 

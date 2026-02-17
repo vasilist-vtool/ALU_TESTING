@@ -1,22 +1,8 @@
-// You can insert code here by setting file_header_inc in file common.tpl
-
-//=============================================================================
-// Project  : generated_tb
-//
-// File Name: alu_driver.sv
-//
-//
-// Version:   1.0
-//
-// Code created by Easier UVM Code Generator version 2017-01-19 on Fri Feb 13 17:50:22 2026
-//=============================================================================
-// Description: Driver for alu
-//=============================================================================
 
 `ifndef ALU_DRIVER_SV
 `define ALU_DRIVER_SV
 
-// You can insert code here by setting driver_inc_before_class in file ral.tpl
+
 
 class alu_driver extends uvm_driver #(apb_transaction);
 
@@ -32,16 +18,12 @@ class alu_driver extends uvm_driver #(apb_transaction);
 
 task do_drive();
   //vif.data <= req.data;
-  @(posedge vif.clk);
-    vif.paddr   <= 1;
-      vif.pwdata  <= 1;
-      vif.pwrite  <= 1;
-      vif.psel    <= 1;
-      vif.penable <= 1;
-
-
-
+  vif.pwdata = 'h123;
+  vif.prdata = 'h321;
 endtask
+
+
+
 
 
 task run_phase(uvm_phase phase);
@@ -57,7 +39,6 @@ task run_phase(uvm_phase phase);
 endtask : run_phase
 
 
-  // You can insert code here by setting driver_inc_inside_class in file ral.tpl
 
 endclass : alu_driver 
 

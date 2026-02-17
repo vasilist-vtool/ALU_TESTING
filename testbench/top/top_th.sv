@@ -5,15 +5,15 @@ module top_th;
   timeprecision 1ps;
 
 
-  // You can remove clock and reset below by setting th_generate_clock_and_reset = no in file common.tpl
 
-  // Example clock and reset declarations
+  //clock and reset declarations
   logic clk = 0;
   logic rst_n;
-  // Example clock generator process
+  
+  //clocl
   always #10 clk = ~clk;
 
-  // Example reset generator process
+ //Reset
    initial begin
     rst_n = 0;
     #75
@@ -23,10 +23,7 @@ module top_th;
   assign alu_if_0.clk    =  clk;
   assign alu_if_0.rst_n = rst_n;
 
-  // You can insert code here by setting th_inc_inside_module in file common.tpl
-
-  // Pin-level interfaces connected to DUT
-  // You can remove interface instances by setting generate_interface_instance = no in the interface template file
+ 
 
   alu_if  alu_if_0 ();
 

@@ -21,8 +21,6 @@ interface alu_if();
 
   // You can insert properties and assertions here
 
-  // You can insert code here by setting if_inc_inside_interface in file ral.tpl
-
 endinterface : alu_if
 
 `endif // ALU_IF_SV

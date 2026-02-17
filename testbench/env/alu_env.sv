@@ -13,14 +13,14 @@ class alu_env extends uvm_env;
   //alu_coverage  m_alu_coverage;
   alu_config    m_config;
      
-  // You can remove build/connect/run_phase by setting top_env_generate_methods_inside_class = no in file common.tpl
+  
 
   extern function void build_phase(uvm_phase phase);
   extern function void connect_phase(uvm_phase phase);
   extern function void end_of_elaboration_phase(uvm_phase phase);
   extern task          run_phase(uvm_phase phase);
 
-  // You can insert code here by setting top_env_inc_inside_class in file common.tpl
+
 
 endclass : alu_env 
 
@@ -30,17 +30,14 @@ function alu_env::new(string name, uvm_component parent);
 endfunction : new
 
 
-// You can remove build/connect/run_phase by setting top_env_generate_methods_after_class = no in file common.tpl
 
 function void alu_env::build_phase(uvm_phase phase);
   `uvm_info(get_type_name(), "In build_phase", UVM_HIGH)
 
-  // You can insert code here by setting top_env_prepend_to_build_phase in file common.tpl
 
   if (!uvm_config_db #(alu_config)::get(this, "", "config", m_config)) 
     `uvm_error(get_type_name(), "Unable to get alu_config")
 
-  // You can insert code here by setting agent_copy_config_vars in file ral.tpl
 
   uvm_config_db #(alu_config)::set(this, "m_alu_agent", "config", m_config);
   if (m_config.is_active == UVM_ACTIVE )
@@ -51,7 +48,6 @@ function void alu_env::build_phase(uvm_phase phase);
   m_alu_agent    = alu_agent   ::type_id::create("m_alu_agent", this);
   //m_alu_coverage = alu_coverage::type_id::create("m_alu_coverage", this);
 
-  // You can insert code here by setting top_env_append_to_build_phase in file common.tpl
 
 endfunction : build_phase
 
@@ -62,12 +58,9 @@ function void alu_env::connect_phase(uvm_phase phase);
   //m_alu_agent.analysis_port.connect(m_alu_coverage.analysis_export);
 
 
-  // You can insert code here by setting alu_env_append_to_connect_phase in file common.tpl
-
 endfunction : connect_phase
 
 
-// You can remove end_of_elaboration_phase by setting alu_env_generate_end_of_elaboration = no in file common.tpl
 
 function void alu_env::end_of_elaboration_phase(uvm_phase phase);
   uvm_factory factory = uvm_factory::get();
@@ -78,7 +71,6 @@ function void alu_env::end_of_elaboration_phase(uvm_phase phase);
 endfunction : end_of_elaboration_phase
 
 
-// You can remove run_phase by setting alu_env_generate_run_phase = no in file common.tpl
 
 task alu_env::run_phase(uvm_phase phase);
   virtual_sequence vseq;
@@ -91,12 +83,10 @@ task alu_env::run_phase(uvm_phase phase);
   vseq.set_starting_phase(phase);
   vseq.start(null);
 
-  // You can insert code here by setting alu_env_append_to_run_phase in file common.tpl
 
 endtask : run_phase
 
 
-// You can insert code here by setting alu_env_inc_after_class in file common.tpl
 
-`endif // ALU_ENV_SV
+`endif
 

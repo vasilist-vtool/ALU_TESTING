@@ -1,18 +1,3 @@
-// You can insert code here by setting file_header_inc in file common.tpl
-
-//=============================================================================
-// Project  : generated_tb
-//
-// File Name: alu_pkg.sv
-//
-//
-// Version:   1.0
-//
-// Code created by Easier UVM Code Generator version 2017-01-19 on Thu Feb 12 11:34:16 2026
-//=============================================================================
-// Description: Package for agent alu
-//=============================================================================
-
 package alu_pkg;
 
   `include "uvm_macros.svh"

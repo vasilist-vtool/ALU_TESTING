@@ -2,7 +2,6 @@
 `ifndef ALU_MONITOR_SV
 `define ALU_MONITOR_SV
 
-// You can insert code here by setting monitor_inc_before_class in file ral.tpl
 
 class alu_monitor extends uvm_monitor;
 
@@ -16,7 +15,6 @@ class alu_monitor extends uvm_monitor;
 
   extern function new(string name, uvm_component parent);
 
-  // You can insert code here by setting monitor_inc_inside_class in file ral.tpl
 
 endclass : alu_monitor 
 
@@ -27,7 +25,7 @@ function alu_monitor::new(string name, uvm_component parent);
 endfunction : new
 
 
-// You can insert code here by setting monitor_inc_after_class in file ral.tpl
 
-`endif // ALU_MONITOR_SV
+
+`endif
 
