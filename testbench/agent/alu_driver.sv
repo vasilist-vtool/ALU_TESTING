@@ -33,6 +33,14 @@ class alu_driver extends uvm_driver #(apb_transaction);
 task do_drive();
   //vif.data <= req.data;
   @(posedge vif.clk);
+    vif.paddr   <= 1;
+      vif.pwdata  <= 1;
+      vif.pwrite  <= 1;
+      vif.psel    <= 1;
+      vif.penable <= 1;
+
+
+
 endtask
 
 

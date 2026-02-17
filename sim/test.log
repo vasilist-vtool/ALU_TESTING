@@ -1,5 +1,5 @@
 xrun(64): 22.03-s002: (c) Copyright 1995-2022 Cadence Design Systems, Inc.
-TOOL:	xrun(64)	22.03-s002: Started on Feb 17, 2026 at 10:46:23 UTC
+TOOL:	xrun(64)	22.03-s002: Started on Feb 17, 2026 at 11:04:19 UTC
 xrun
 	-timescale 1ns/1ns
 	-sysv
@@ -56,7 +56,7 @@ xrun
 		-sv
 		/space/users/vasilist/ALU_TESTING/testbench/top/top_tb.sv
 	-uvmhome CDNS-1.2
-	+UVM_TESTNAME=random_test
+	+UVM_TESTNAME=base_test
 	-clean
 	-l test.log
 	+DUMPNAME=test.vcd
@@ -220,10 +220,10 @@ xmelab: *W,ENUMERR (../testbench/agent/apb_transaction.sv,103|20): This assignme
 	Enabling instrumentation for coverage types: block expression FSM toggle functional
 xmelab: *W,COVDCL: By default expression coverage is scored only for Verilog logical operators (|| and &&) and VHDL logical operators (OR, AND, NOR, and NAND), and is scored only in condition expressions. To score coverage for other operators and for expressions in other statements, use the "set_expr_coverable_operators" and "set_expr_coverable_statements" coverage configuration file commands with suitable options at elaboration.
 	Generating native compiled code:
-		worklib.top_tb:sv <0x3c8867a2>
+		worklib.top_tb:sv <0x50b580c9>
 			streams:  67, words: 97029
-		worklib.alu_pkg:sv <0x3191800c>
-			streams: 447, words: 524711
+		worklib.alu_pkg:sv <0x43ed8b5d>
+			streams: 452, words: 530757
 		worklib.cdns_uvm_pkg:sv <0x77a0171a>
 			streams: 249, words: 393728
 		worklib.cdns_uvmapi:svp <0x34f65145>
@@ -331,7 +331,7 @@ xmelab: *W,COVDCL: By default expression coverage is scored only for Verilog log
 		Simulation timescale:        1ps
 	Writing initial simulation snapshot: worklib.top_tb:sv
 xmsim: *W,NOMTDGUI: Multi-Threaded Dumping is disabled for interactive debug mode.
-SVSEED set randomly from command line: 1358512310
+SVSEED set randomly from command line: -1127629354
 xmsim: *W,DSEM2009: This SystemVerilog design is simulated as per IEEE 1800-2009 SystemVerilog simulation semantics. Use -disable_sem2009 option for turning off SV 2009 simulation semantics.
 
 -------------------------------------
@@ -339,17 +339,71 @@ Relinquished control to SimVision...
 xcelium> 
 xcelium> source /tools/cdnc/xcelium/current/tools/xcelium/files/xmsimrc
 xcelium> source /tools/cdnc/xcelium/current/tools/methodology/UVM/CDNS-1.2/additions/sv/files/tcl/uvm_sim.tcl
+xcelium> run
+UVM_INFO /tools/cdnc/xcelium/current/tools/methodology/UVM/CDNS-1.2/sv/src/base/uvm_root.svh(412) @ 0: reporter [UVM/RELNOTES] 
+----------------------------------------------------------------
+CDNS-UVM-1.2 (22.03-s002)
+(C) 2007-2014 Mentor Graphics Corporation
+(C) 2007-2014 Cadence Design Systems, Inc.
+(C) 2006-2014 Synopsys, Inc.
+(C) 2011-2013 Cypress Semiconductor Corp.
+(C) 2013-2014 NVIDIA Corporation
+----------------------------------------------------------------
+
+  ***********       IMPORTANT RELEASE NOTES         ************
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_NO_DEPRECATED undefined.
+  See http://www.eda.org/svdb/view.php?id=3313 for more details.
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_OBJECT_DO_NOT_NEED_CONSTRUCTOR undefined.
+  See http://www.eda.org/svdb/view.php?id=3770 for more details.
+
+      (Specify +UVM_NO_RELNOTES to turn off this notice)
+
+stop -create -name Randomize -randomize
+Created stop Randomize
+
+UVM_WARNING @ 0: reporter [BDTYP] Cannot create a component of type 'base_test' because it is not registered with the factory.
+UVM_FATAL @ 0: reporter [INVTST] Requested test from command line +UVM_TESTNAME=base_test not found.
+UVM_INFO /tools/cdnc/xcelium/current/tools/methodology/UVM/CDNS-1.2/sv/src/base/uvm_report_catcher.svh(705) @ 0: reporter [UVM/REPORT/CATCHER] 
+--- UVM Report catcher Summary ---
+
+
+Number of demoted UVM_FATAL reports  :    0
+Number of demoted UVM_ERROR reports  :    0
+Number of demoted UVM_WARNING reports:    0
+Number of caught UVM_FATAL reports   :    0
+Number of caught UVM_ERROR reports   :    0
+Number of caught UVM_WARNING reports :    0
+
+UVM_INFO /tools/cdnc/xcelium/current/tools/methodology/UVM/CDNS-1.2/sv/src/base/uvm_report_server.svh(847) @ 0: reporter [UVM/REPORT/SERVER] 
+--- UVM Report Summary ---
+
+** Report counts by severity
+UVM_INFO :    2
+UVM_WARNING :    1
+UVM_ERROR :    0
+UVM_FATAL :    1
+** Report counts by id
+[BDTYP]     1
+[INVTST]     1
+[UVM/RELNOTES]     1
+[UVM/REPORT/CATCHER]     1
+
+Simulation complete via $finish(1) at time 0 FS + 0
+/tools/cdnc/xcelium/current/tools/methodology/UVM/CDNS-1.2/sv/src/base/uvm_root.svh:135     $finish;
 xcelium> ^C
 xcelium> exit
-xmsim: *W,NORUNCMD: No 'run' command issued.
 
 coverage setup:
   workdir  :  ./cov_work
   dutinst  :  top_tb(top_tb)
   scope    :  scope
-  testname :  test_sv1358512310
+  testname :  test_sv-1127629354
 
 coverage files:
-  model(design data) :  ./cov_work/scope/icc_033690a8_00000000.ucm
-  data               :  ./cov_work/scope/test_sv1358512310/icc_033690a8_00000000.ucd
-TOOL:	xrun(64)	22.03-s002: Exiting on Feb 17, 2026 at 10:46:49 UTC  (total: 00:00:26)
+  model(design data) :  ./cov_work/scope/icc_033690a8_00000000.ucm (reused)
+  data               :  ./cov_work/scope/test_sv-1127629354/icc_033690a8_00000000.ucd
+TOOL:	xrun(64)	22.03-s002: Exiting on Feb 17, 2026 at 11:15:25 UTC  (total: 00:11:06)
