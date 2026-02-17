@@ -31,13 +31,12 @@ module top_tb;
       `uvm_error("top_tb", "Failed to randomize top-level configuration object" )
 
     m_config.vif             = th.alu_if_0;
-    m_config.is_active_alu       = UVM_ACTIVE; 
-    m_config.checks_enable_alu   = 1;          
-    m_config.coverage_enable_alu = 1;          
+    m_config.is_active      = UVM_ACTIVE; 
+    m_config.checks_enable   = 1;          
+    m_config.coverage_enable = 1;       
 
 
-    uvm_config_db #(m_config)::set(null, "uvm_test_top", "config", m_config);
-    uvm_config_db #(m_config)::set(null, "uvm_test_top.m_env", "config", m_config);
+    uvm_config_db #(alu_config)::set(null, "uvm_test_top", "alu_config", m_config);
 
     // You can insert code here by setting tb_inc_before_run_test in file common.tpl
 

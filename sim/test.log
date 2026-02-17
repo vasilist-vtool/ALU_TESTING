@@ -1,5 +1,5 @@
 xrun(64): 22.03-s002: (c) Copyright 1995-2022 Cadence Design Systems, Inc.
-TOOL:	xrun(64)	22.03-s002: Started on Feb 16, 2026 at 15:58:42 UTC
+TOOL:	xrun(64)	22.03-s002: Started on Feb 17, 2026 at 08:22:09 UTC
 xrun
 	-timescale 1ns/1ns
 	-sysv
@@ -80,19 +80,16 @@ file: /space/users/vasilist/ALU_TESTING/testbench/top/top_th.sv
 	module worklib.top_th:sv
 		errors: 0, warnings: 0
 file: /space/users/vasilist/ALU_TESTING/testbench/top/top_tb.sv
-    m_config.is_active_alu       = UVM_ACTIVE; 
-                         |
-xmvlog: *E,NOTCLM (/space/users/vasilist/ALU_TESTING/testbench/top/top_tb.sv,34|25): is_active_alu is not a class item.
-    m_config.checks_enable_alu   = 1;          
-                             |
-xmvlog: *E,NOTCLM (/space/users/vasilist/ALU_TESTING/testbench/top/top_tb.sv,35|29): checks_enable_alu is not a class item.
-    m_config.coverage_enable_alu = 1;          
-                               |
-xmvlog: *E,NOTCLM (/space/users/vasilist/ALU_TESTING/testbench/top/top_tb.sv,36|31): coverage_enable_alu is not a class item.
+    uvm_config_db #(m_config)::set(null, "uvm_test_top", "config", m_config);
+                           |
+xmvlog: *E,SVTPFA (/space/users/vasilist/ALU_TESTING/testbench/top/top_tb.sv,39|27): Invalid value parameter override of type parameter.
+    uvm_config_db #(m_config)::set(null, "uvm_test_top.m_env", "config", m_config);
+                           |
+xmvlog: *E,SVTPFA (/space/users/vasilist/ALU_TESTING/testbench/top/top_tb.sv,40|27): Invalid value parameter override of type parameter.
 	module worklib.top_tb:sv
-		errors: 3, warnings: 0
+		errors: 2, warnings: 0
 xmvlog: *W,SPDUSD: Include directory /space/users/vasilist/ALU_TESTING/testbench given but not used.
 	Total errors/warnings found outside modules and primitives:
 		errors: 0, warnings: 8
 xrun: *E,VLGERR: An error occurred during parsing.  Review the log file for errors with the code *E and fix those identified problems to proceed.  Exiting with code (status 1).
-TOOL:	xrun(64)	22.03-s002: Exiting on Feb 16, 2026 at 15:58:43 UTC  (total: 00:00:01)
+TOOL:	xrun(64)	22.03-s002: Exiting on Feb 17, 2026 at 08:22:10 UTC  (total: 00:00:01)
