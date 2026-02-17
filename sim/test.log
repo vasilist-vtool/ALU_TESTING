@@ -1,5 +1,5 @@
 xrun(64): 22.03-s002: (c) Copyright 1995-2022 Cadence Design Systems, Inc.
-TOOL:	xrun(64)	22.03-s002: Started on Feb 17, 2026 at 08:22:09 UTC
+TOOL:	xrun(64)	22.03-s002: Started on Feb 17, 2026 at 10:46:23 UTC
 xrun
 	-timescale 1ns/1ns
 	-sysv
@@ -15,13 +15,32 @@ xrun
 		+incdir+/space/users/vasilist/ALU_TESTING/testbench/top
 		+incdir+/space/users/vasilist/ALU_TESTING/testbench/agent
 		+incdir+/space/users/vasilist/ALU_TESTING/testbench/env
-		+incdir+/space/users/vasilist/ALU_TESTING/testbench/tests
+		+incdir+/space/users/vasilist/ALU_TESTING/testbench/test
 		+incdir+/space/users/vasilist/ALU_TESTING/ALU_RTL
 		+incdir+/space/users/vasilist/ALU_TESTING/ALU_RTL/ALU
 		+incdir+/space/users/vasilist/ALU_TESTING/ALU_RTL/ALU/APB_CSR
 		+incdir+/space/users/vasilist/ALU_TESTING/ALU_RTL/ALU/Common
 		+incdir+/space/users/vasilist/ALU_TESTING/ALU_RTL/ALU/FIFO
 		+incdir+/space/usersvasilist/ALU_TESTING/testbench/agent/sequences
+		-v /space/users/vasilist/ALU_TESTING/ALU_RTL/ALU/APB_CSR/APB_CSR_top_module.v
+		-v /space/users/vasilist/ALU_TESTING/ALU_RTL/ALU/APB_CSR/cs_registers.v
+		-v /space/users/vasilist/ALU_TESTING/ALU_RTL/ALU/APB_CSR/csr_control.v
+		-v /space/users/vasilist/ALU_TESTING/ALU_RTL/ALU/Common/d_ff_async_en.v
+		-v /space/users/vasilist/ALU_TESTING/ALU_RTL/ALU/Common/d_ff_async.v
+		-v /space/users/vasilist/ALU_TESTING/ALU_RTL/ALU/Common/posedge_detector.v
+		-v /space/users/vasilist/ALU_TESTING/ALU_RTL/ALU/FIFO/fifo_synch.v
+		-v /space/users/vasilist/ALU_TESTING/ALU_RTL/ALU/FIFO/flags.v
+		-v /space/users/vasilist/ALU_TESTING/ALU_RTL/ALU/FIFO/memory.v
+		-v /space/users/vasilist/ALU_TESTING/ALU_RTL/ALU/FIFO/read_address.v
+		-v /space/users/vasilist/ALU_TESTING/ALU_RTL/ALU/FIFO/write_address.v
+		-v /space/users/vasilist/ALU_TESTING/ALU_RTL/ALU/add_sub.v
+		-v /space/users/vasilist/ALU_TESTING/ALU_RTL/ALU/adder.v
+		-v /space/users/vasilist/ALU_TESTING/ALU_RTL/ALU/alu_top_module.v
+		-v /space/users/vasilist/ALU_TESTING/ALU_RTL/ALU/cla_1_bit.v
+		-v /space/users/vasilist/ALU_TESTING/ALU_RTL/ALU/in_alu_control_unit.v
+		-v /space/users/vasilist/ALU_TESTING/ALU_RTL/ALU/mul_fsm.v
+		-v /space/users/vasilist/ALU_TESTING/ALU_RTL/ALU/out_alu_control_unit.v
+		-v /space/users/vasilist/ALU_TESTING/ALU_RTL/ALU/right_shift_register.v
 		-sv
 		/space/users/vasilist/ALU_TESTING/testbench/top/top_pkg.sv
 		-sv
@@ -30,6 +49,8 @@ xrun
 		/space/users/vasilist/ALU_TESTING/testbench/agent/alu_pkg.sv
 		-sv
 		/space/users/vasilist/ALU_TESTING/testbench/env/env_pkg.sv
+		-sv
+		/space/users/vasilist/ALU_TESTING/testbench/test/test_pkg.sv
 		-sv
 		/space/users/vasilist/ALU_TESTING/testbench/top/top_th.sv
 		-sv
@@ -47,19 +68,7 @@ xrun
 
 xrun: *N,CLEAN: Removing existing directory ./xcelium.d.
 Compiling UVM packages (uvm_pkg.sv cdns_uvm_pkg.sv) using uvmhome location /tools/cdnc/xcelium/current/tools/methodology/UVM/CDNS-1.2
-xmvlog: *W,NOTIND: unable to access -INCDIR /space/users/vasilist/ALU_TESTING/testbench/tests (No such file or directory).
-xmvlog: *W,NOTIND: unable to access -INCDIR /space/users/vasilist/ALU_TESTING/ALU_RTL (No such file or directory).
-xmvlog: *W,NOTIND: unable to access -INCDIR /space/users/vasilist/ALU_TESTING/ALU_RTL/ALU (No such file or directory).
-xmvlog: *W,NOTIND: unable to access -INCDIR /space/users/vasilist/ALU_TESTING/ALU_RTL/ALU/APB_CSR (No such file or directory).
-xmvlog: *W,NOTIND: unable to access -INCDIR /space/users/vasilist/ALU_TESTING/ALU_RTL/ALU/Common (No such file or directory).
-xmvlog: *W,NOTIND: unable to access -INCDIR /space/users/vasilist/ALU_TESTING/ALU_RTL/ALU/FIFO (No such file or directory).
 xmvlog: *W,NOTIND: unable to access -INCDIR /space/usersvasilist/ALU_TESTING/testbench/agent/sequences (No such file or directory).
-xmvlog: *W,NOTIND: unable to access -INCDIR /space/users/vasilist/ALU_TESTING/testbench/tests (No such file or directory).
-xmvlog: *W,NOTIND: unable to access -INCDIR /space/users/vasilist/ALU_TESTING/ALU_RTL (No such file or directory).
-xmvlog: *W,NOTIND: unable to access -INCDIR /space/users/vasilist/ALU_TESTING/ALU_RTL/ALU (No such file or directory).
-xmvlog: *W,NOTIND: unable to access -INCDIR /space/users/vasilist/ALU_TESTING/ALU_RTL/ALU/APB_CSR (No such file or directory).
-xmvlog: *W,NOTIND: unable to access -INCDIR /space/users/vasilist/ALU_TESTING/ALU_RTL/ALU/Common (No such file or directory).
-xmvlog: *W,NOTIND: unable to access -INCDIR /space/users/vasilist/ALU_TESTING/ALU_RTL/ALU/FIFO (No such file or directory).
 xmvlog: *W,NOTIND: unable to access -INCDIR /space/usersvasilist/ALU_TESTING/testbench/agent/sequences (No such file or directory).
 file: /space/users/vasilist/ALU_TESTING/testbench/top/top_pkg.sv
 	package worklib.top_pkg:sv
@@ -76,20 +85,271 @@ xmvlog: *W,ENUMERR (/space/users/vasilist/ALU_TESTING/testbench/agent/apb_transa
 file: /space/users/vasilist/ALU_TESTING/testbench/env/env_pkg.sv
 	package worklib.env_pkg:sv
 		errors: 0, warnings: 0
+file: /space/users/vasilist/ALU_TESTING/testbench/test/test_pkg.sv
+	package worklib.test_pkg:sv
+		errors: 0, warnings: 0
 file: /space/users/vasilist/ALU_TESTING/testbench/top/top_th.sv
 	module worklib.top_th:sv
 		errors: 0, warnings: 0
 file: /space/users/vasilist/ALU_TESTING/testbench/top/top_tb.sv
-    uvm_config_db #(m_config)::set(null, "uvm_test_top", "config", m_config);
-                           |
-xmvlog: *E,SVTPFA (/space/users/vasilist/ALU_TESTING/testbench/top/top_tb.sv,39|27): Invalid value parameter override of type parameter.
-    uvm_config_db #(m_config)::set(null, "uvm_test_top.m_env", "config", m_config);
-                           |
-xmvlog: *E,SVTPFA (/space/users/vasilist/ALU_TESTING/testbench/top/top_tb.sv,40|27): Invalid value parameter override of type parameter.
 	module worklib.top_tb:sv
-		errors: 2, warnings: 0
+		errors: 0, warnings: 0
+file: /space/users/vasilist/ALU_TESTING/ALU_RTL/ALU/APB_CSR/APB_CSR_top_module.v
+file: /space/users/vasilist/ALU_TESTING/ALU_RTL/ALU/APB_CSR/cs_registers.v
+file: /space/users/vasilist/ALU_TESTING/ALU_RTL/ALU/APB_CSR/csr_control.v
+file: /space/users/vasilist/ALU_TESTING/ALU_RTL/ALU/Common/d_ff_async_en.v
+file: /space/users/vasilist/ALU_TESTING/ALU_RTL/ALU/Common/d_ff_async.v
+file: /space/users/vasilist/ALU_TESTING/ALU_RTL/ALU/Common/posedge_detector.v
+file: /space/users/vasilist/ALU_TESTING/ALU_RTL/ALU/FIFO/fifo_synch.v
+file: /space/users/vasilist/ALU_TESTING/ALU_RTL/ALU/FIFO/flags.v
+file: /space/users/vasilist/ALU_TESTING/ALU_RTL/ALU/FIFO/memory.v
+file: /space/users/vasilist/ALU_TESTING/ALU_RTL/ALU/FIFO/read_address.v
+file: /space/users/vasilist/ALU_TESTING/ALU_RTL/ALU/FIFO/write_address.v
+file: /space/users/vasilist/ALU_TESTING/ALU_RTL/ALU/add_sub.v
+file: /space/users/vasilist/ALU_TESTING/ALU_RTL/ALU/adder.v
+file: /space/users/vasilist/ALU_TESTING/ALU_RTL/ALU/alu_top_module.v
+	module alu_top_module.alu_top_module:v
+		errors: 0, warnings: 0
+file: /space/users/vasilist/ALU_TESTING/ALU_RTL/ALU/cla_1_bit.v
+file: /space/users/vasilist/ALU_TESTING/ALU_RTL/ALU/in_alu_control_unit.v
+	module in_alu_control_unit.in_alu_control_unit:v
+		errors: 0, warnings: 0
+file: /space/users/vasilist/ALU_TESTING/ALU_RTL/ALU/mul_fsm.v
+	module mul_fsm.mul_fsm:v
+		errors: 0, warnings: 0
+file: /space/users/vasilist/ALU_TESTING/ALU_RTL/ALU/out_alu_control_unit.v
+	module out_alu_control_unit.out_alu_control_unit:v
+		errors: 0, warnings: 0
+file: /space/users/vasilist/ALU_TESTING/ALU_RTL/ALU/right_shift_register.v
+	module right_shift_register.right_shift_register:v
+		errors: 0, warnings: 0
+file: /space/users/vasilist/ALU_TESTING/ALU_RTL/ALU/APB_CSR/APB_CSR_top_module.v
+	module APB_CSR_top_module.APB_CSR_top_module:v
+		errors: 0, warnings: 0
+file: /space/users/vasilist/ALU_TESTING/ALU_RTL/ALU/APB_CSR/cs_registers.v
+	module cs_registers.cs_registers:v
+		errors: 0, warnings: 0
+file: /space/users/vasilist/ALU_TESTING/ALU_RTL/ALU/APB_CSR/csr_control.v
+	module csr_control.csr_control:v
+		errors: 0, warnings: 0
+file: /space/users/vasilist/ALU_TESTING/ALU_RTL/ALU/Common/d_ff_async_en.v
+	module d_ff_async_en.d_ff_async_en:v
+		errors: 0, warnings: 0
+file: /space/users/vasilist/ALU_TESTING/ALU_RTL/ALU/Common/posedge_detector.v
+	module posedge_detector.posedge_detector:v
+		errors: 0, warnings: 0
+file: /space/users/vasilist/ALU_TESTING/ALU_RTL/ALU/FIFO/fifo_synch.v
+	module fifo_synch.fifo_synch:v
+		errors: 0, warnings: 0
+file: /space/users/vasilist/ALU_TESTING/ALU_RTL/ALU/FIFO/flags.v
+	module flags.flags:v
+		errors: 0, warnings: 0
+file: /space/users/vasilist/ALU_TESTING/ALU_RTL/ALU/FIFO/memory.v
+	module memory.memory:v
+		errors: 0, warnings: 0
+file: /space/users/vasilist/ALU_TESTING/ALU_RTL/ALU/FIFO/read_address.v
+	module read_address.read_address:v
+		errors: 0, warnings: 0
+file: /space/users/vasilist/ALU_TESTING/ALU_RTL/ALU/FIFO/write_address.v
+	module write_address.write_address:v
+		errors: 0, warnings: 0
+file: /space/users/vasilist/ALU_TESTING/ALU_RTL/ALU/add_sub.v
+	module add_sub.add_sub:v
+		errors: 0, warnings: 0
+file: /space/users/vasilist/ALU_TESTING/ALU_RTL/ALU/adder.v
+	module adder.adder:v
+		errors: 0, warnings: 0
+file: /space/users/vasilist/ALU_TESTING/ALU_RTL/ALU/cla_1_bit.v
+	module cla_1_bit.cla_1_bit:v
+		errors: 0, warnings: 0
+file: /space/users/vasilist/ALU_TESTING/ALU_RTL/ALU/Common/d_ff_async.v
+	module d_ff_async.d_ff_async:v
+		errors: 0, warnings: 0
+file: /space/users/vasilist/ALU_TESTING/ALU_RTL/ALU/add_sub.v
 xmvlog: *W,SPDUSD: Include directory /space/users/vasilist/ALU_TESTING/testbench given but not used.
+xmvlog: *W,SPDUSD: Include directory /space/users/vasilist/ALU_TESTING/ALU_RTL given but not used.
+xmvlog: *W,SPDUSD: Include directory /space/users/vasilist/ALU_TESTING/ALU_RTL/ALU given but not used.
+xmvlog: *W,SPDUSD: Include directory /space/users/vasilist/ALU_TESTING/ALU_RTL/ALU/APB_CSR given but not used.
+xmvlog: *W,SPDUSD: Include directory /space/users/vasilist/ALU_TESTING/ALU_RTL/ALU/Common given but not used.
+xmvlog: *W,SPDUSD: Include directory /space/users/vasilist/ALU_TESTING/ALU_RTL/ALU/FIFO given but not used.
 	Total errors/warnings found outside modules and primitives:
-		errors: 0, warnings: 8
-xrun: *E,VLGERR: An error occurred during parsing.  Review the log file for errors with the code *E and fix those identified problems to proceed.  Exiting with code (status 1).
-TOOL:	xrun(64)	22.03-s002: Exiting on Feb 17, 2026 at 08:22:10 UTC  (total: 00:00:01)
+		errors: 0, warnings: 7
+		Caching library 'APB_CSR_top_module' ....... Done
+		Caching library 'add_sub' ....... Done
+		Caching library 'adder' ....... Done
+		Caching library 'alu_top_module' ....... Done
+		Caching library 'cla_1_bit' ....... Done
+		Caching library 'cs_registers' ....... Done
+		Caching library 'csr_control' ....... Done
+		Caching library 'd_ff_async' ....... Done
+		Caching library 'd_ff_async_en' ....... Done
+		Caching library 'fifo_synch' ....... Done
+		Caching library 'flags' ....... Done
+		Caching library 'in_alu_control_unit' ....... Done
+		Caching library 'memory' ....... Done
+		Caching library 'mul_fsm' ....... Done
+		Caching library 'out_alu_control_unit' ....... Done
+		Caching library 'posedge_detector' ....... Done
+		Caching library 'read_address' ....... Done
+		Caching library 'right_shift_register' ....... Done
+		Caching library 'worklib' ....... Done
+		Caching library 'write_address' ....... Done
+	Elaborating the design hierarchy:
+	Top level design units:
+		uvm_pkg
+		cdns_uvmapi
+		cdns_assert2uvm_pkg
+		cdns_uvm_pkg
+		top_pkg
+		alu_pkg
+		top_tb
+xmelab: *W,DSEMEL: This SystemVerilog design will be simulated as per IEEE 1800-2009 SystemVerilog simulation semantics. Use -disable_sem2009 option for turning off SV 2009 simulation semantics.
+xmelab: *W,COVDNC: Coverage inside Verilog library cells and VHDL vital cells is not enabled by default; if needed, use the set_libcell_scoring command at elaboration.
+
+	Extracting FSMs for coverage:
+		worklib.top_th
+		worklib.top_tb
+	Total FSMs extracted = 0
+             .d(rdata),
+                    |
+xmelab: *W,CUVMPW (../ALU_RTL/ALU/APB_CSR/csr_control.v,252|20): port sizes differ in port connection(32/25) for the instance(top_tb.th.dut.csr_inst.csr_control_inst) .
+  `uvm_unpack_int(op)      
+                    |
+xmelab: *W,ENUMERR (../testbench/agent/apb_transaction.sv,103|20): This assignment is a violation of SystemVerilog strong typing rules for enumeration datatypes.
+	Building instance overlay tables: .................... Done
+	Enabling instrumentation for coverage types: block expression FSM toggle functional
+xmelab: *W,COVDCL: By default expression coverage is scored only for Verilog logical operators (|| and &&) and VHDL logical operators (OR, AND, NOR, and NAND), and is scored only in condition expressions. To score coverage for other operators and for expressions in other statements, use the "set_expr_coverable_operators" and "set_expr_coverable_statements" coverage configuration file commands with suitable options at elaboration.
+	Generating native compiled code:
+		worklib.top_tb:sv <0x3c8867a2>
+			streams:  67, words: 97029
+		worklib.alu_pkg:sv <0x3191800c>
+			streams: 447, words: 524711
+		worklib.cdns_uvm_pkg:sv <0x77a0171a>
+			streams: 249, words: 393728
+		worklib.cdns_uvmapi:svp <0x34f65145>
+			streams:  27, words: 29972
+		worklib.cdns_assert2uvm_pkg:sv <0x60823b62>
+			streams:   3, words:  1818
+		worklib.uvm_pkg:sv <0x7193ce29>
+			streams: 5939, words: 9072089
+		worklib.top_th:sv <0x0dacc05f>
+			streams:  15, words:  5343
+		add_sub.add_sub:v <0x52c1236c>
+			streams:   2, words:   745
+		add_sub.add_sub:v <0x14e255c6>
+			streams:   2, words:   856
+		alu_top_module.alu_top_module:v <0x1b59b8a2>
+			streams:   3, words:   597
+		APB_CSR_top_module.APB_CSR_top_module:v <0x154a8f85>
+			streams:   1, words:   123
+		csr_control.csr_control:v <0x1650c91d>
+			streams:  15, words:  5188
+		d_ff_async_en.d_ff_async_en:v <0x526958a6>
+			streams:   2, words:   615
+		d_ff_async_en.d_ff_async_en:v <0x01a70e12>
+			streams:   2, words:   621
+		d_ff_async_en.d_ff_async_en:v <0x45f6c25e>
+			streams:   2, words:   630
+		d_ff_async_en.d_ff_async_en:v <0x2c3a3e53>
+			streams:   2, words:   720
+		d_ff_async_en.d_ff_async_en:v <0x7135b9f6>
+			streams:   2, words:   630
+		d_ff_async_en.d_ff_async_en:v <0x02dc60c2>
+			streams:   2, words:   841
+		d_ff_async_en.d_ff_async_en:v <0x2c47b504>
+			streams:   2, words:   648
+		d_ff_async_en.d_ff_async_en:v <0x30fee316>
+			streams:   2, words:   615
+		d_ff_async_en.d_ff_async_en:v <0x1194775a>
+			streams:   2, words:   604
+		d_ff_async_en.d_ff_async_en:v <0x00d5c7a3>
+			streams:   2, words:   615
+		d_ff_async_en.d_ff_async_en:v <0x599606e9>
+			streams:   2, words:   621
+		d_ff_async_en.d_ff_async_en:v <0x4b6e5f69>
+			streams:   2, words:   630
+		d_ff_async_en.d_ff_async_en:v <0x6a0d75bc>
+			streams:   2, words:   632
+		d_ff_async_en.d_ff_async_en:v <0x6abdebfc>
+			streams:   2, words:   632
+		d_ff_async_en.d_ff_async_en:v <0x686f060a>
+			streams:   2, words:   632
+		posedge_detector.posedge_detector:v <0x423c0a42>
+			streams:   1, words:   123
+		cs_registers.cs_registers:v <0x5a25b899>
+			streams:   6, words:  2219
+		fifo_synch.fifo_synch:v <0x70999a48>
+			streams:   0, words:     0
+		fifo_synch.fifo_synch:v <0x6d662688>
+			streams:   0, words:     0
+		write_address.write_address:v <0x473d82ef>
+			streams:   2, words:   464
+		read_address.read_address:v <0x303bf6dd>
+			streams:   2, words:   467
+		flags.flags:v <0x21d4804f>
+			streams:   3, words:   997
+		memory.memory:v <0x3b9006cb>
+			streams:   6, words:  1613
+		memory.memory:v <0x32c12e59>
+			streams:   6, words:  1835
+		in_alu_control_unit.in_alu_control_unit:v <0x02627d6e>
+			streams:   9, words:  2946
+		adder.adder:v <0x26a9340a>
+			streams:  10, words:  5851
+		cla_1_bit.cla_1_bit:v <0x280f5204>
+			streams:   0, words:     0
+		d_ff_async.d_ff_async:v <0x1b11b641>
+			streams:   2, words:   464
+		mul_fsm.mul_fsm:v <0x74043f78>
+			streams:  22, words: 13861
+		right_shift_register.right_shift_register:v <0x697381eb>
+			streams:   2, words:   828
+		right_shift_register.right_shift_register:v <0x56d4fcf0>
+			streams:   2, words:   683
+		out_alu_control_unit.out_alu_control_unit:v <0x06e00073>
+			streams:   3, words:   902
+	Building instance specific data structures.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		                       Instances  Unique
+		Modules:                     104      21
+		Interfaces:                    1       1
+		Verilog packages:              6       8
+		Registers:                 16301   11727
+		Scalar wires:                319       -
+		Expanded wires:               32       3
+		Vectored wires:               66       -
+		Named events:                  4      12
+		Always blocks:                65      13
+		Initial blocks:              316     165
+		Parallel blocks:              27      29
+		Cont. assignments:            30      61
+		Pseudo assignments:           95      65
+		Assertions:                    3       3
+		SV Class declarations:       229     348
+		SV Class specializations:    433     433
+		Simulation timescale:        1ps
+	Writing initial simulation snapshot: worklib.top_tb:sv
+xmsim: *W,NOMTDGUI: Multi-Threaded Dumping is disabled for interactive debug mode.
+SVSEED set randomly from command line: 1358512310
+xmsim: *W,DSEM2009: This SystemVerilog design is simulated as per IEEE 1800-2009 SystemVerilog simulation semantics. Use -disable_sem2009 option for turning off SV 2009 simulation semantics.
+
+-------------------------------------
+Relinquished control to SimVision...
+xcelium> 
+xcelium> source /tools/cdnc/xcelium/current/tools/xcelium/files/xmsimrc
+xcelium> source /tools/cdnc/xcelium/current/tools/methodology/UVM/CDNS-1.2/additions/sv/files/tcl/uvm_sim.tcl
+xcelium> ^C
+xcelium> exit
+xmsim: *W,NORUNCMD: No 'run' command issued.
+
+coverage setup:
+  workdir  :  ./cov_work
+  dutinst  :  top_tb(top_tb)
+  scope    :  scope
+  testname :  test_sv1358512310
+
+coverage files:
+  model(design data) :  ./cov_work/scope/icc_033690a8_00000000.ucm
+  data               :  ./cov_work/scope/test_sv1358512310/icc_033690a8_00000000.ucd
+TOOL:	xrun(64)	22.03-s002: Exiting on Feb 17, 2026 at 10:46:49 UTC  (total: 00:00:26)

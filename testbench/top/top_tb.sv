@@ -37,6 +37,7 @@ module top_tb;
 
 
     uvm_config_db #(alu_config)::set(null, "uvm_test_top", "alu_config", m_config);
+   
 
     // You can insert code here by setting tb_inc_before_run_test in file common.tpl
 

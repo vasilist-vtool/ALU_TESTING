@@ -8,7 +8,7 @@ interface alu_if();
   timeprecision 1ps;
 
   //import alu_pkg::*;
-  logic pclk ;
+  logic clk ;
   logic [`ADDR_W:0] paddr;
   logic [(`APB_BUS_SIZE-1):0] pwdata;
   logic [(`APB_BUS_SIZE-1):0] prdata;
@@ -16,7 +16,6 @@ interface alu_if();
   logic       pwrite;
   logic       psel;
   logic       rst_n;
-  logic       presetn;
   logic       ready;
   logic       slv_err;
 

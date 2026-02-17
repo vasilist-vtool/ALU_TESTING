@@ -1,0 +1,6 @@
+rm -rf cov_work
+rm -rf .simvision
+rm -rf test.history
+rm -rf test.log
+rm -rf xcelium.d
+rm -rf xrun.key

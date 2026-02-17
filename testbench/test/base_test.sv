@@ -45,6 +45,11 @@ endfunction : new
 
 function void base_test::build_phase(uvm_phase phase);
 
+ if (!uvm_config_db #(alu_config)::get(this, "", "alu_config", m_config)) 
+    `uvm_error(get_type_name(), "Unable to get alu_config")
+
+
+
   // You can insert code here by setting test_prepend_to_build_phase in file common.tpl
 
   // You could modify any test-specific configuration object variables here
@@ -52,7 +57,6 @@ function void base_test::build_phase(uvm_phase phase);
 
 
   m_env = alu_env::type_id::create("m_env", this);
-  m_config = alu_config::type_id::create("m_config",this);
   // You can insert code here by setting test_append_to_build_phase in file common.tpl
 
 endfunction 

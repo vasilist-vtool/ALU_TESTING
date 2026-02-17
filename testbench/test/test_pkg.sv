@@ -23,9 +23,9 @@ package test_pkg;
   import uvm_pkg::*;
 
   import alu_pkg::*;
-  import top_pkg::*;
+  import env_pkg::*;
 
-  `include "top_test.sv"
+  `include "base_test.sv"
 
 endpackage : test_pkg
 

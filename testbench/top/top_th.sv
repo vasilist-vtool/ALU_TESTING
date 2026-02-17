@@ -8,20 +8,20 @@ module top_th;
   // You can remove clock and reset below by setting th_generate_clock_and_reset = no in file common.tpl
 
   // Example clock and reset declarations
-  logic clock = 0;
-  logic reset;
+  logic clk = 0;
+  logic rst_n;
   // Example clock generator process
-  always #10 clock = ~clock;
+  always #10 clk = ~clk;
 
   // Example reset generator process
    initial begin
-    reset = 0;
+    rst_n = 0;
     #75
-    reset = 1;
+    rst_n = 1;
   end
 
-  assign alu_if_0.pclk    = clock;
-  assign alu_if_0.presetn = reset;
+  assign alu_if_0.clk    =  clk;
+  assign alu_if_0.rst_n = rst_n;
 
   // You can insert code here by setting th_inc_inside_module in file common.tpl
 
@@ -31,14 +31,14 @@ module top_th;
   alu_if  alu_if_0 ();
 
     alu_top_module dut(
-    .pclk     (clock),
-    .presetn  (reset),
-    .paddr    (alu_if_0.paddr),
-    .pwdata   (alu_if_0.pwdata),
-    .prdata   (alu_if_0.prdata),
-    .penable  (alu_if_0.penable),
-    .pwrite   (alu_if_0.pwrite),
-    .psel     (alu_if_0.psel),
+    .clk     (clk),
+    .rst_n  (rst_n),
+    .addr    (alu_if_0.paddr),
+    .wdata   (alu_if_0.pwdata),
+    .rdata   (alu_if_0.prdata),
+    .en  (alu_if_0.penable),
+    .write   (alu_if_0.pwrite),
+    .sel     (alu_if_0.psel),
     .ready    (alu_if_0.ready),
     .slv_err  (alu_if_0.slv_err)
   );
