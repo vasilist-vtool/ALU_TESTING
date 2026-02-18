@@ -4,3 +4,7 @@ rm -rf test.history
 rm -rf test.log
 rm -rf xcelium.d
 rm -rf xrun.key
+rm -rf waves.shm
+rm -rf xcelium.shm
+
+

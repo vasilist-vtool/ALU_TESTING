@@ -12,7 +12,7 @@ class apb_transaction extends uvm_sequence_item;
     logic slv_err;
 
     constraint c_addr {addr inside{[0:4]};}
-    constraint c_delay {delay inside{[0:50]};}
+    constraint c_delay {delay inside{[MIN_DELAY:MAX_DELAY]};}
 
 function new(string name ="");
     super.new(name);

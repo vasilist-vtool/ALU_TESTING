@@ -8,7 +8,7 @@ class base_seq extends uvm_sequence #(apb_transaction);
   alu_config  m_config;
 
   extern function new(string name = "");
-  extern task body();
+  extern virtual task body();
 
 
 endclass : base_seq

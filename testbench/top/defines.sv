@@ -34,3 +34,7 @@ typedef enum  { apb_write,
 
 typedef logic[`ADDR_W : 0] address_t;
 typedef logic[`APB_BUS_SIZE-1 : 0] data_t;
+
+int NUM_TRANSACTIONS = 10;
+int MAX_DELAY = 10;
+int MIN_DELAY = 0;

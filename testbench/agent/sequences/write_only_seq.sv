@@ -1,12 +1,11 @@
-`ifndef RANDOM_SEQ_SV
-`define RANDOM_SEQ_SV
 
 
 
-class random_seq extends base_seq;
+
+class write_only_seq extends base_seq;
 
 
-        `uvm_object_utils(random_seq)
+        `uvm_object_utils(write_only_seq)
 
   alu_config  m_config;
 
@@ -17,26 +16,27 @@ class random_seq extends base_seq;
 endclass
 
 
-function random_seq::new(string name = "");
+function write_only_seq::new(string name = "");
   super.new(name);
 endfunction : new
 
 
-task random_seq::body();
-  `uvm_info(get_type_name(), "Random sequence starting", UVM_HIGH)
+task write_only_seq::body();
+  `uvm_info(get_type_name(), "write_only_seq starting", UVM_HIGH)
  
   repeat (NUM_TRANSACTIONS) begin
 
     req = apb_transaction::type_id::create("req");
          start_item(req); 
     if ( !req.randomize() )
+         req.write = 1;
         `uvm_error(get_type_name(), "Failed to randomize transaction")
         finish_item(req);
     
   end
 
-  `uvm_info(get_type_name(), "Random sequence completed", UVM_HIGH)
+  `uvm_info(get_type_name(), "write_only_seq completed", UVM_HIGH)
 endtask : body
 
-`endif // RANDOM_SEQ_SV
+
 
