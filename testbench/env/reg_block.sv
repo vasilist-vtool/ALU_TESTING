@@ -22,10 +22,10 @@ class ctl_reg extends uvm_reg;
     id     = uvm_reg_field::type_id::create("id");
 
  //Field configuration(parent, size, lsb_pos, access, volatile, reset, has_reset, is_rand, individually_accessible);
-    start.configure    (this, 1, 0, "WO", 0, 1'h0, 1, 1, 1);
-    operation.configure(this, 2, 1, "WO", 1, 2'h0, 1, 1, 1);
+    start.configure    (this, 1, 0, "WO", 1, 1'h0, 1, 1, 1);
+    operation.configure(this, 2, 1, "WO", 0, 2'h0, 1, 1, 1);
 	reserved.configure (this, 5, 3, "WO", 0, 5'h0, 1, 1, 1);
-    id.configure       (this, 8, 8, "WO", 1, 8'h0, 1, 1, 1);
+    id.configure       (this, 8, 8, "WO", 0, 8'h0, 1, 1, 1);
 
 //For backdoor access
 	add_hdl_path_slice(.name("start_bit_pos"),.offset(0),.size(1));
@@ -54,10 +54,12 @@ class data0_reg extends uvm_reg;
 // Build all register field objects
   virtual function void build();
   this.data0 = uvm_reg_field::type_id::create("data0"); 
+  this.reserved = uvm_reg_field::type_id::create("reserved");
 
- //Field configuration(parent, size, lsb_pos, access, volatile, reset, has_reset, is_rand, individually_accessible);
-	this.data0.configure(this, 16, 0, "WO", 1, 16'h0, 1, 1, 1);
+  //Field configuration(parent, size, lsb_pos, access, volatile, reset, has_reset, is_rand, individually_accessible);
 
+	this.data0.configure   (this, 16, 0, "WO", 1, 16'h0, 1, 1, 1);
+    this.reserved.configure(this, 16, 16, "RO", 0, 16'h0, 1, 0, 0);
  //For backdorr access
 	add_hdl_path_slice( .name("data_0_out"), .offset(0), .size(16));
   endfunction
@@ -83,8 +85,8 @@ class data1_reg extends uvm_reg;
  	this.data1 = uvm_reg_field::type_id::create("data1"); 
 
  //Field configuration(parent, size, lsb_pos, access, volatile, reset, has_reset, is_rand, individually_accessible);
-	this.data1.configure(this, 16, 0, "WO", 1, 16'h0, 1, 1, 1);
-
+	this.data1.configure(this, 16, 0, "WO", 0, 16'h0, 1, 1, 1);
+    this.reserved.configure(this, 16, 16, "RO", 0, 16'h0, 1, 0, 0);
 	//For backdorr access
 	add_hdl_path_slice( .name("data_1_out"), .offset(0), .size(16));
   endfunction

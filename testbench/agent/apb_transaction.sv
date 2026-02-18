@@ -6,7 +6,7 @@ class apb_transaction extends uvm_sequence_item;
     rand logic write;
     rand data_t data; 
     rand address_t addr;
-    int unsigned delay;
+    rand int unsigned delay;
 
     logic ready;
     logic slv_err;

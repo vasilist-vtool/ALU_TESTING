@@ -1,9 +1,11 @@
 xrun(64): 22.03-s002: (c) Copyright 1995-2022 Cadence Design Systems, Inc.
-TOOL:	xrun(64)	22.03-s002: Started on Feb 17, 2026 at 14:18:30 UTC
+TOOL:	xrun(64)	22.03-s002: Started on Feb 18, 2026 at 11:50:23 UTC
 xrun
 	-timescale 1ns/1ns
 	-sysv
-	-access +rw
+	-access +rwc
+	-linedebug
+	-debug
 	-uvm
 	-gui
 	-covoverwrite
@@ -66,6 +68,7 @@ xrun
 	+DUMPNAME=test.vcd
 	+UVM_VERBOSITY=UVM_HIGH
 
+xrun: *W,BADPRF: The -linedebug option may have an adverse performance impact.
 xrun: *N,CLEAN: Removing existing directory ./xcelium.d.
 Compiling UVM packages (uvm_pkg.sv cdns_uvm_pkg.sv) using uvmhome location /tools/cdnc/xcelium/current/tools/methodology/UVM/CDNS-1.2
 xmvlog: *W,NOTIND: unable to access -INCDIR /space/usersvasilist/ALU_TESTING/testbench/agent/sequences (No such file or directory).
@@ -222,92 +225,92 @@ xmelab: *W,ENUMERR (../testbench/agent/apb_transaction.sv,103|20): This assignme
 	Enabling instrumentation for coverage types: block expression FSM toggle functional
 xmelab: *W,COVDCL: By default expression coverage is scored only for Verilog logical operators (|| and &&) and VHDL logical operators (OR, AND, NOR, and NAND), and is scored only in condition expressions. To score coverage for other operators and for expressions in other statements, use the "set_expr_coverable_operators" and "set_expr_coverable_statements" coverage configuration file commands with suitable options at elaboration.
 	Generating native compiled code:
-		worklib.top_tb:sv <0x2e377d20>
-			streams: 613, words: 727808
-		worklib.cdns_uvm_pkg:sv <0x5bf2182a>
-			streams: 249, words: 393728
-		worklib.cdns_uvmapi:svp <0x01ae0d2f>
-			streams:  27, words: 29972
-		worklib.cdns_assert2uvm_pkg:sv <0x3925c16e>
-			streams:   3, words:  1818
-		worklib.uvm_pkg:sv <0x01b720ab>
-			streams: 5939, words: 9074039
-		worklib.top_th:sv <0x7dcdfcc1>
-			streams:  15, words:  5129
-		add_sub.add_sub:v <0x52c1236c>
-			streams:   2, words:   745
-		add_sub.add_sub:v <0x14e255c6>
-			streams:   2, words:   856
-		alu_top_module.alu_top_module:v <0x1b59b8a2>
-			streams:   3, words:   597
-		APB_CSR_top_module.APB_CSR_top_module:v <0x154a8f85>
-			streams:   1, words:   123
-		csr_control.csr_control:v <0x1650c91d>
-			streams:  15, words:  5188
-		d_ff_async_en.d_ff_async_en:v <0x526958a6>
-			streams:   2, words:   615
-		d_ff_async_en.d_ff_async_en:v <0x01a70e12>
-			streams:   2, words:   621
-		d_ff_async_en.d_ff_async_en:v <0x45f6c25e>
-			streams:   2, words:   630
-		d_ff_async_en.d_ff_async_en:v <0x2c3a3e53>
-			streams:   2, words:   720
-		d_ff_async_en.d_ff_async_en:v <0x7135b9f6>
-			streams:   2, words:   630
-		d_ff_async_en.d_ff_async_en:v <0x02dc60c2>
-			streams:   2, words:   841
-		d_ff_async_en.d_ff_async_en:v <0x2c47b504>
-			streams:   2, words:   648
-		d_ff_async_en.d_ff_async_en:v <0x30fee316>
-			streams:   2, words:   615
-		d_ff_async_en.d_ff_async_en:v <0x1194775a>
-			streams:   2, words:   604
-		d_ff_async_en.d_ff_async_en:v <0x00d5c7a3>
-			streams:   2, words:   615
-		d_ff_async_en.d_ff_async_en:v <0x599606e9>
-			streams:   2, words:   621
-		d_ff_async_en.d_ff_async_en:v <0x4b6e5f69>
-			streams:   2, words:   630
-		d_ff_async_en.d_ff_async_en:v <0x6a0d75bc>
-			streams:   2, words:   632
-		d_ff_async_en.d_ff_async_en:v <0x6abdebfc>
-			streams:   2, words:   632
-		d_ff_async_en.d_ff_async_en:v <0x686f060a>
-			streams:   2, words:   632
-		posedge_detector.posedge_detector:v <0x423c0a42>
-			streams:   1, words:   123
-		cs_registers.cs_registers:v <0x5a25b899>
-			streams:   6, words:  2219
-		fifo_synch.fifo_synch:v <0x70999a48>
+		worklib.top_tb:sv <0x3e0505a7>
+			streams: 641, words: 1120175
+		worklib.cdns_uvm_pkg:sv <0x66cc977d>
+			streams: 251, words: 562471
+		worklib.cdns_uvmapi:svp <0x22f0e687>
+			streams:  27, words: 46339
+		worklib.cdns_assert2uvm_pkg:sv <0x0678bb4c>
+			streams:   3, words:  3356
+		worklib.uvm_pkg:sv <0x685ca196>
+			streams: 6288, words: 14113831
+		worklib.top_th:sv <0x14af0466>
+			streams:  15, words:  7617
+		add_sub.add_sub:v <0x75c1f082>
+			streams:   2, words:  1121
+		add_sub.add_sub:v <0x4fc23412>
+			streams:   2, words:  1227
+		alu_top_module.alu_top_module:v <0x34bba5d3>
+			streams:   5, words:   925
+		APB_CSR_top_module.APB_CSR_top_module:v <0x6c2da820>
+			streams:   1, words:   174
+		csr_control.csr_control:v <0x5a69c3aa>
+			streams:  29, words:  9574
+		d_ff_async_en.d_ff_async_en:v <0x715bbfa8>
+			streams:   3, words:  1068
+		d_ff_async_en.d_ff_async_en:v <0x2295e91c>
+			streams:   3, words:  1080
+		d_ff_async_en.d_ff_async_en:v <0x66c42550>
+			streams:   3, words:  1086
+		d_ff_async_en.d_ff_async_en:v <0x0f08d95d>
+			streams:   3, words:  1401
+		d_ff_async_en.d_ff_async_en:v <0x52075ef8>
+			streams:   3, words:  1086
+		d_ff_async_en.d_ff_async_en:v <0x21ee87cc>
+			streams:   3, words:  1316
+		d_ff_async_en.d_ff_async_en:v <0x0f75520a>
+			streams:   3, words:  1115
+		d_ff_async_en.d_ff_async_en:v <0x13cc0418>
+			streams:   3, words:  1068
+		d_ff_async_en.d_ff_async_en:v <0x32a69054>
+			streams:   3, words:  1050
+		d_ff_async_en.d_ff_async_en:v <0x23e720ad>
+			streams:   3, words:  1068
+		d_ff_async_en.d_ff_async_en:v <0x7aa4e1e7>
+			streams:   3, words:  1080
+		d_ff_async_en.d_ff_async_en:v <0x685cb867>
+			streams:   3, words:  1086
+		d_ff_async_en.d_ff_async_en:v <0x493f92b2>
+			streams:   3, words:  1106
+		d_ff_async_en.d_ff_async_en:v <0x498f0cf2>
+			streams:   3, words:  1106
+		d_ff_async_en.d_ff_async_en:v <0x4b5de104>
+			streams:   3, words:  1106
+		posedge_detector.posedge_detector:v <0x49701367>
+			streams:   1, words:   171
+		cs_registers.cs_registers:v <0x5d32db3e>
+			streams:  17, words:  3592
+		fifo_synch.fifo_synch:v <0x07126053>
 			streams:   0, words:     0
-		fifo_synch.fifo_synch:v <0x6d662688>
+		fifo_synch.fifo_synch:v <0x1aeddc93>
 			streams:   0, words:     0
-		write_address.write_address:v <0x473d82ef>
-			streams:   2, words:   464
-		read_address.read_address:v <0x303bf6dd>
-			streams:   2, words:   467
-		flags.flags:v <0x21d4804f>
-			streams:   3, words:   997
-		memory.memory:v <0x3b9006cb>
-			streams:   6, words:  1613
-		memory.memory:v <0x32c12e59>
-			streams:   6, words:  1835
-		in_alu_control_unit.in_alu_control_unit:v <0x02627d6e>
-			streams:   9, words:  2946
-		adder.adder:v <0x26a9340a>
-			streams:  10, words:  5851
-		cla_1_bit.cla_1_bit:v <0x280f5204>
+		write_address.write_address:v <0x0270b60f>
+			streams:   3, words:   603
+		read_address.read_address:v <0x213075cd>
+			streams:   3, words:   606
+		flags.flags:v <0x40b17201>
+			streams:   7, words:  1456
+		memory.memory:v <0x577c6e35>
+			streams:   6, words:  2133
+		memory.memory:v <0x5e2d46a7>
+			streams:   6, words:  2483
+		in_alu_control_unit.in_alu_control_unit:v <0x484dfbcf>
+			streams:  23, words:  4542
+		adder.adder:v <0x07931570>
+			streams:  16, words:  9262
+		cla_1_bit.cla_1_bit:v <0x6f0edc5b>
 			streams:   0, words:     0
-		d_ff_async.d_ff_async:v <0x1b11b641>
-			streams:   2, words:   464
-		mul_fsm.mul_fsm:v <0x74043f78>
-			streams:  22, words: 13861
-		right_shift_register.right_shift_register:v <0x697381eb>
-			streams:   2, words:   828
-		right_shift_register.right_shift_register:v <0x56d4fcf0>
-			streams:   2, words:   683
-		out_alu_control_unit.out_alu_control_unit:v <0x06e00073>
-			streams:   3, words:   902
+		d_ff_async.d_ff_async:v <0x728d7007>
+			streams:   3, words:  1006
+		mul_fsm.mul_fsm:v <0x63844e99>
+			streams:  31, words: 21612
+		right_shift_register.right_shift_register:v <0x3ccfd9f5>
+			streams:   4, words:  2172
+		right_shift_register.right_shift_register:v <0x7a047f2d>
+			streams:   4, words:  1624
+		out_alu_control_unit.out_alu_control_unit:v <0x00b16b31>
+			streams:   6, words:  2161
 	Building instance specific data structures.
 	Loading native compiled code:     .................... Done
 	Design hierarchy summary:
@@ -322,16 +325,16 @@ xmelab: *W,COVDCL: By default expression coverage is scored only for Verilog log
 		Named events:                  4      12
 		Always blocks:                65      13
 		Initial blocks:              328     166
-		Parallel blocks:              28      29
-		Cont. assignments:            30      61
-		Pseudo assignments:           95      65
+		Parallel blocks:              29      30
+		Cont. assignments:            47      61
+		Pseudo assignments:          149     117
 		Assertions:                    3       3
 		SV Class declarations:       233     349
 		SV Class specializations:    441     441
 		Simulation timescale:        1ps
 	Writing initial simulation snapshot: worklib.top_tb:sv
 xmsim: *W,NOMTDGUI: Multi-Threaded Dumping is disabled for interactive debug mode.
-SVSEED set randomly from command line: -2097018136
+SVSEED set randomly from command line: 1375257255
 xmsim: *W,DSEM2009: This SystemVerilog design is simulated as per IEEE 1800-2009 SystemVerilog simulation semantics. Use -disable_sem2009 option for turning off SV 2009 simulation semantics.
 
 -------------------------------------
@@ -339,6 +342,17 @@ Relinquished control to SimVision...
 xcelium> 
 xcelium> source /tools/cdnc/xcelium/current/tools/xcelium/files/xmsimrc
 xcelium> source /tools/cdnc/xcelium/current/tools/methodology/UVM/CDNS-1.2/additions/sv/files/tcl/uvm_sim.tcl
+xcelium> database -open waves -into waves.shm -default
+Created default SHM database waves
+xcelium> probe -create -shm top_tb.th.alu_if_0.clk top_tb.th.alu_if_0.paddr top_tb.th.alu_if_0.penable top_tb.th.alu_if_0.prdata top_tb.th.alu_if_0.psel top_tb.th.alu_if_0.pwdata top_tb.th.alu_if_0.pwrite top_tb.th.alu_if_0.ready top_tb.th.alu_if_0.rst_n top_tb.th.alu_if_0.slv_err
+Created probe 1
+xcelium> scope -set alu_pkg::
+xcelium> stop -create -file /space/users/vasilist/ALU_TESTING/testbench/agent/alu_driver.sv -line 28 alu_pkg::alu_driver
+Created stop 1
+xcelium> stop -create -file /space/users/vasilist/ALU_TESTING/testbench/agent/alu_driver.sv -line 35 alu_pkg::alu_driver
+Created stop 2
+xcelium> stop -create -file /space/users/vasilist/ALU_TESTING/testbench/agent/alu_driver.sv -line 67 alu_pkg::alu_driver
+Created stop 3
 xcelium> run
 UVM_INFO /tools/cdnc/xcelium/current/tools/methodology/UVM/CDNS-1.2/sv/src/base/uvm_root.svh(412) @ 0: reporter [UVM/RELNOTES] 
 ----------------------------------------------------------------
@@ -374,18 +388,18 @@ UVM_INFO /tools/cdnc/xcelium/current/tools/methodology/UVM/CDNS-1.2/sv/src/base/
 --------------------------------------------------------------
 Name                       Type                    Size  Value
 --------------------------------------------------------------
-uvm_test_top               base_test               -     @2006
-  m_env                    alu_env                 -     @2071
-    m_alu_agent            alu_agent               -     @2138
-      analysis_port        uvm_analysis_port       -     @2189
-      m_driver             alu_driver              -     @2306
-        rsp_port           uvm_analysis_port       -     @2408
-        seq_item_port      uvm_seq_item_pull_port  -     @2356
-      m_monitor            alu_monitor             -     @2222
-        analysis_port      uvm_analysis_port       -     @2274
-      m_sequencer          uvm_sequencer           -     @2439
-        rsp_export         uvm_analysis_export     -     @2500
-        seq_item_export    uvm_seq_item_pull_imp   -     @3060
+uvm_test_top               base_test               -     @2024
+  m_env                    alu_env                 -     @2097
+    m_alu_agent            alu_agent               -     @2163
+      analysis_port        uvm_analysis_port       -     @2215
+      m_driver             alu_driver              -     @2332
+        rsp_port           uvm_analysis_port       -     @2434
+        seq_item_port      uvm_seq_item_pull_port  -     @2382
+      m_monitor            alu_monitor             -     @2248
+        analysis_port      uvm_analysis_port       -     @2300
+      m_sequencer          uvm_sequencer           -     @2465
+        rsp_export         uvm_analysis_export     -     @2526
+        seq_item_export    uvm_seq_item_pull_imp   -     @3086
         arbitration_queue  array                   0     -    
         lock_queue         array                   0     -    
         num_last_reqs      integral                32    'd1  
@@ -416,24 +430,54 @@ All types registered with the factory: 62 total
 ####
 
 
-UVM_INFO /space/users/vasilist/ALU_TESTING/testbench/agent/alu_driver.sv(30) @ 0: uvm_test_top.m_env.m_alu_agent.m_driver [alu_driver] run_phase
+UVM_INFO /space/users/vasilist/ALU_TESTING/testbench/agent/alu_driver.sv(18) @ 0: uvm_test_top.m_env.m_alu_agent.m_driver [alu_driver] run_phase
 UVM_INFO /space/users/vasilist/ALU_TESTING/testbench/env/virtual_sequence.sv(37) @ 0: reporter@@vseq [virtual_sequence] Default sequence starting
 SDI/Verilog Transaction Recording Facility Version 22.03-s002
 UVM_INFO /space/users/vasilist/ALU_TESTING/testbench/agent/sequences/base_seq.sv(23) @ 0: uvm_test_top.m_env.m_alu_agent.m_sequencer@@vseq.seq [base_seq] Default sequence starting
-UVM_INFO /space/users/vasilist/ALU_TESTING/testbench/agent/alu_driver.sv(35) @ 0: uvm_test_top.m_env.m_alu_agent.m_driver [alu_driver] req item
+10 NS + 0 (stop 3: ../testbench/agent/alu_driver.sv:67)
+xcelium> run
+10 NS + 0 (stop 1: ../testbench/agent/alu_driver.sv:28)
+xcelium> run
+30 NS + 0 (stop 3: ../testbench/agent/alu_driver.sv:67)
+xcelium> stop -disable 3
+xcelium> run
+30 NS + 0 (stop 1: ../testbench/agent/alu_driver.sv:28)
+xcelium> stop -disable 1
+xcelium> run
+75 NS + 3 (stop 2: ../testbench/agent/alu_driver.sv:35)
+xcelium> stop -create -file /space/users/vasilist/ALU_TESTING/testbench/agent/alu_driver.sv -line 43 alu_pkg::alu_driver@2332_45
+Created stop 4
+xcelium> run
+75 NS + 3 (stop 2: ../testbench/agent/alu_driver.sv:35)
+xcelium> run
+75 NS + 3 (stop 2: ../testbench/agent/alu_driver.sv:35)
+xcelium> run
+UVM_INFO /space/users/vasilist/ALU_TESTING/testbench/agent/alu_driver.sv(35) @ 75000: uvm_test_top.m_env.m_alu_agent.m_driver [alu_driver] req item
 vseq.seq.req
-write   = 'h0  'd0
+write   = 'h1  'd1
 op      = 'h0  'd0
-addr    = 'h3  'd3
-data    = 'h89a3be84  'd2309209732
+addr    = 'h1  'd1
+data    = 'h48d61e4b  'd1221992011
 ready   = 'hx  'dx
 slv_err = 'hx  'dx
-delay   = 'h0  'd0
+delay   = 'ha  'd10
 
-UVM_INFO /space/users/vasilist/ALU_TESTING/testbench/agent/sequences/base_seq.sv(31) @ 0: uvm_test_top.m_env.m_alu_agent.m_sequencer@@vseq.seq [base_seq] Default sequence completed
-UVM_INFO /space/users/vasilist/ALU_TESTING/testbench/env/virtual_sequence.sv(56) @ 0: reporter@@vseq [virtual_sequence] Default sequence completed
-UVM_INFO /tools/cdnc/xcelium/current/tools/methodology/UVM/CDNS-1.2/sv/src/base/uvm_objection.svh(1271) @ 0: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
-UVM_INFO /tools/cdnc/xcelium/current/tools/methodology/UVM/CDNS-1.2/sv/src/base/uvm_report_catcher.svh(705) @ 0: reporter [UVM/REPORT/CATCHER] 
+270 NS + 0 (stop 4: ../testbench/agent/alu_driver.sv:43)
+xcelium> stop -create -file /space/users/vasilist/ALU_TESTING/testbench/agent/alu_driver.sv -line 53 alu_pkg::alu_driver@2332_45
+Created stop 5
+xcelium> run
+270 NS + 2 (stop 4: ../testbench/agent/alu_driver.sv:43)
+xcelium> run
+290 NS + 0 (stop 5: ../testbench/agent/alu_driver.sv:53)
+xcelium> run -adjacent
+xcelium> run -adjacent
+xcelium> run -adjacent
+290 NS + 2 (stop 5: ../testbench/agent/alu_driver.sv:53)
+xcelium> run -adjacent
+UVM_INFO /space/users/vasilist/ALU_TESTING/testbench/agent/sequences/base_seq.sv(31) @ 310000: uvm_test_top.m_env.m_alu_agent.m_sequencer@@vseq.seq [base_seq] Default sequence completed
+UVM_INFO /space/users/vasilist/ALU_TESTING/testbench/env/virtual_sequence.sv(56) @ 310000: reporter@@vseq [virtual_sequence] Default sequence completed
+UVM_INFO /tools/cdnc/xcelium/current/tools/methodology/UVM/CDNS-1.2/sv/src/base/uvm_objection.svh(1271) @ 310000: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+UVM_INFO /tools/cdnc/xcelium/current/tools/methodology/UVM/CDNS-1.2/sv/src/base/uvm_report_catcher.svh(705) @ 310000: reporter [UVM/REPORT/CATCHER] 
 --- UVM Report catcher Summary ---
 
 
@@ -444,7 +488,7 @@ Number of caught UVM_FATAL reports   :    0
 Number of caught UVM_ERROR reports   :    0
 Number of caught UVM_WARNING reports :    0
 
-UVM_INFO /tools/cdnc/xcelium/current/tools/methodology/UVM/CDNS-1.2/sv/src/base/uvm_report_server.svh(847) @ 0: reporter [UVM/REPORT/SERVER] 
+UVM_INFO /tools/cdnc/xcelium/current/tools/methodology/UVM/CDNS-1.2/sv/src/base/uvm_report_server.svh(847) @ 310000: reporter [UVM/REPORT/SERVER] 
 --- UVM Report Summary ---
 
 ** Report counts by severity
@@ -464,18 +508,329 @@ UVM_FATAL :    0
 [base_seq]     2
 [virtual_sequence]     2
 
-Simulation complete via $finish(1) at time 0 FS + 241
+Simulation complete via $finish(1) at time 310 NS + 70
 /tools/cdnc/xcelium/current/tools/methodology/UVM/CDNS-1.2/sv/src/base/uvm_root.svh:543     $finish;
+xcelium> run -adjacent
+xmsim: *E,RNFNSH: Cannot continue simulation due to a previous $finish.
+xcelium> reset
+xmsim: *W,C58RST: Reset command executed. Coverage is enabled for the subsequent simulation run.  The coverage test name needs to be changed to prevent data overwrite, and any coverage control commands previously used must be reissued.
+SVSEED set randomly from command line: 49891304
+xmsim: *W,SCPINV: Dynamic scope `uvm_pkg::uvm_root@1100_1.run_test' no longer valid - traversing to last valid scope `alu_pkg::alu_driver'.
+Scope 'alu_pkg::alu_driver@2332_45' is no longer valid for line stop 4.
+Deleting line stop 4.
+Scope 'alu_pkg::alu_driver@2332_45' is no longer valid for line stop 5.
+Deleting line stop 5.
+xmsim: *W,DSEM2009: This SystemVerilog design is simulated as per IEEE 1800-2009 SystemVerilog simulation semantics. Use -disable_sem2009 option for turning off SV 2009 simulation semantics.
+Loaded snapshot worklib.top_tb:sv
+xcelium> run
+UVM_INFO /tools/cdnc/xcelium/current/tools/methodology/UVM/CDNS-1.2/sv/src/base/uvm_root.svh(412) @ 0: reporter [UVM/RELNOTES] 
+----------------------------------------------------------------
+CDNS-UVM-1.2 (22.03-s002)
+(C) 2007-2014 Mentor Graphics Corporation
+(C) 2007-2014 Cadence Design Systems, Inc.
+(C) 2006-2014 Synopsys, Inc.
+(C) 2011-2013 Cypress Semiconductor Corp.
+(C) 2013-2014 NVIDIA Corporation
+----------------------------------------------------------------
+
+  ***********       IMPORTANT RELEASE NOTES         ************
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_NO_DEPRECATED undefined.
+  See http://www.eda.org/svdb/view.php?id=3313 for more details.
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_OBJECT_DO_NOT_NEED_CONSTRUCTOR undefined.
+  See http://www.eda.org/svdb/view.php?id=3770 for more details.
+
+      (Specify +UVM_NO_RELNOTES to turn off this notice)
+
+UVM_INFO @ 0: reporter [RNTST] Running test base_test...
+UVM_INFO /space/users/vasilist/ALU_TESTING/testbench/env/alu_env.sv(35) @ 0: uvm_test_top.m_env [alu_env] In build_phase
+UVM_INFO /space/users/vasilist/ALU_TESTING/testbench/env/alu_env.sv(56) @ 0: uvm_test_top.m_env [alu_env] In connect_phase
+UVM_INFO /space/users/vasilist/ALU_TESTING/testbench/env/alu_env.sv(67) @ 0: uvm_test_top.m_env [alu_env] Information printed from alu_env::end_of_elaboration_phase method
+UVM_INFO /space/users/vasilist/ALU_TESTING/testbench/env/alu_env.sv(68) @ 0: uvm_test_top.m_env [alu_env] Verbosity threshold is         300
+UVM_INFO /tools/cdnc/xcelium/current/tools/methodology/UVM/CDNS-1.2/sv/src/base/uvm_root.svh(605) @ 0: reporter [UVMTOP] UVM testbench topology:
+--------------------------------------------------------------
+Name                       Type                    Size  Value
+--------------------------------------------------------------
+uvm_test_top               base_test               -     @2024
+  m_env                    alu_env                 -     @2097
+    m_alu_agent            alu_agent               -     @2163
+      analysis_port        uvm_analysis_port       -     @2215
+      m_driver             alu_driver              -     @2332
+        rsp_port           uvm_analysis_port       -     @2434
+        seq_item_port      uvm_seq_item_pull_port  -     @2382
+      m_monitor            alu_monitor             -     @2248
+        analysis_port      uvm_analysis_port       -     @2300
+      m_sequencer          uvm_sequencer           -     @2465
+        rsp_export         uvm_analysis_export     -     @2526
+        seq_item_export    uvm_seq_item_pull_imp   -     @3086
+        arbitration_queue  array                   0     -    
+        lock_queue         array                   0     -    
+        num_last_reqs      integral                32    'd1  
+        num_last_rsps      integral                32    'd1  
+--------------------------------------------------------------
+
+UVM_INFO /tools/cdnc/xcelium/current/tools/methodology/UVM/CDNS-1.2/sv/src/base/uvm_factory.svh(1645) @ 0: reporter [UVM/FACTORY/PRINT] 
+#### Factory Configuration (*)
+
+  No instance or type overrides are registered with this factory
+
+All types registered with the factory: 62 total
+  Type Name
+  ---------
+  alu_agent
+  alu_driver
+  alu_env
+  alu_monitor
+  apb_transaction
+  base_seq
+  base_test
+  cdns_sst2_uvm_recorder
+  cdns_uvm_sst2_tr_stream
+  random_seq
+  virtual_sequence
+(*) Types with no associated type name will be printed as <unknown>
+
+####
+
+
+UVM_INFO /space/users/vasilist/ALU_TESTING/testbench/agent/alu_driver.sv(18) @ 0: uvm_test_top.m_env.m_alu_agent.m_driver [alu_driver] run_phase
+UVM_INFO /space/users/vasilist/ALU_TESTING/testbench/env/virtual_sequence.sv(37) @ 0: reporter@@vseq [virtual_sequence] Default sequence starting
+
+Message!     [SDI/Verilog]                                                     
+    In $sdi_open, there's already an open SDI recording database.
+This call is ignored.
+Current simulation time = 0                                                                         
+    "/tools/cdnc/xcelium/current/tools/methodology/UVM/CDNS-1.2/additions/sv/cdns_recording.svh", 350: $sdi_open(db_name_l,use_existing_db,use_compression);
+UVM_INFO /space/users/vasilist/ALU_TESTING/testbench/agent/sequences/base_seq.sv(23) @ 0: uvm_test_top.m_env.m_alu_agent.m_sequencer@@vseq.seq [base_seq] Default sequence starting
+75 NS + 3 (stop 2: ../testbench/agent/alu_driver.sv:35)
+xcelium> stop -disable 2
+xcelium> stop -create -file /space/users/vasilist/ALU_TESTING/testbench/agent/alu_driver.sv -line 56 alu_pkg::alu_driver@2332_45
+Created stop 6
+xcelium> run
+UVM_INFO /space/users/vasilist/ALU_TESTING/testbench/agent/alu_driver.sv(35) @ 75000: uvm_test_top.m_env.m_alu_agent.m_driver [alu_driver] req item
+vseq.seq.req
+write   = 'h0  'd0
+op      = 'h0  'd0
+addr    = 'h1  'd1
+data    = 'hfe182147  'd4262994247
+ready   = 'hx  'dx
+slv_err = 'hx  'dx
+delay   = 'h20  'd32
+
+730 NS + 0 (stop 6: ../testbench/agent/alu_driver.sv:56)
+xcelium> run -adjacent
+730 NS + 0 (stop 6: ../testbench/agent/alu_driver.sv:56)
+xcelium> run -adjacent
+xcelium> run -adjacent
+Simulation time has advanced to 750 NS + 0
+xcelium> run -step
+750 NS + 0 (stop 6: ../testbench/agent/alu_driver.sv:56)
+xcelium> run -step
+xcelium> run -adjacent
+xmsim: *N,ADJTHE: Thread exited under 'run -adjacent'; continuing as 'run -next'.
+xcelium> run -adjacent
+xcelium> run -adjacent
+UVM_INFO /space/users/vasilist/ALU_TESTING/testbench/agent/sequences/base_seq.sv(31) @ 750000: uvm_test_top.m_env.m_alu_agent.m_sequencer@@vseq.seq [base_seq] Default sequence completed
+UVM_INFO /space/users/vasilist/ALU_TESTING/testbench/env/virtual_sequence.sv(56) @ 750000: reporter@@vseq [virtual_sequence] Default sequence completed
+UVM_INFO /tools/cdnc/xcelium/current/tools/methodology/UVM/CDNS-1.2/sv/src/base/uvm_objection.svh(1271) @ 750000: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+UVM_INFO /tools/cdnc/xcelium/current/tools/methodology/UVM/CDNS-1.2/sv/src/base/uvm_report_catcher.svh(705) @ 750000: reporter [UVM/REPORT/CATCHER] 
+--- UVM Report catcher Summary ---
+
+
+Number of demoted UVM_FATAL reports  :    0
+Number of demoted UVM_ERROR reports  :    0
+Number of demoted UVM_WARNING reports:    0
+Number of caught UVM_FATAL reports   :    0
+Number of caught UVM_ERROR reports   :    0
+Number of caught UVM_WARNING reports :    0
+
+UVM_INFO /tools/cdnc/xcelium/current/tools/methodology/UVM/CDNS-1.2/sv/src/base/uvm_report_server.svh(847) @ 750000: reporter [UVM/REPORT/SERVER] 
+--- UVM Report Summary ---
+
+** Report counts by severity
+UVM_INFO :   16
+UVM_WARNING :    0
+UVM_ERROR :    0
+UVM_FATAL :    0
+** Report counts by id
+[RNTST]     1
+[TEST_DONE]     1
+[UVM/FACTORY/PRINT]     1
+[UVM/RELNOTES]     1
+[UVM/REPORT/CATCHER]     1
+[UVMTOP]     1
+[alu_driver]     2
+[alu_env]     4
+[base_seq]     2
+[virtual_sequence]     2
+
+Simulation complete via $finish(1) at time 750 NS + 70
+/tools/cdnc/xcelium/current/tools/methodology/UVM/CDNS-1.2/sv/src/base/uvm_root.svh:543     $finish;
+xcelium> run -adjacent
+xmsim: *E,RNFNSH: Cannot continue simulation due to a previous $finish.
+xcelium> run -adjacent
+xmsim: *E,RNFNSH: Cannot continue simulation due to a previous $finish.
+xcelium> run -adjacent
+xmsim: *E,RNFNSH: Cannot continue simulation due to a previous $finish.
+xcelium> run -adjacent
+xmsim: *E,RNFNSH: Cannot continue simulation due to a previous $finish.
+xcelium> reset
+xmsim: *W,C58RST: Reset command executed. Coverage is enabled for the subsequent simulation run.  The coverage test name needs to be changed to prevent data overwrite, and any coverage control commands previously used must be reissued.
+SVSEED set randomly from command line: 1526353269
+xmsim: *W,SCPINV: Dynamic scope `uvm_pkg::uvm_root@1100_1.run_test' no longer valid - traversing to last valid scope `alu_pkg::alu_driver'.
+Scope 'alu_pkg::alu_driver@2332_45' is no longer valid for line stop 6.
+Deleting line stop 6.
+xmsim: *W,DSEM2009: This SystemVerilog design is simulated as per IEEE 1800-2009 SystemVerilog simulation semantics. Use -disable_sem2009 option for turning off SV 2009 simulation semantics.
+Loaded snapshot worklib.top_tb:sv
+xcelium> run
+UVM_INFO /tools/cdnc/xcelium/current/tools/methodology/UVM/CDNS-1.2/sv/src/base/uvm_root.svh(412) @ 0: reporter [UVM/RELNOTES] 
+----------------------------------------------------------------
+CDNS-UVM-1.2 (22.03-s002)
+(C) 2007-2014 Mentor Graphics Corporation
+(C) 2007-2014 Cadence Design Systems, Inc.
+(C) 2006-2014 Synopsys, Inc.
+(C) 2011-2013 Cypress Semiconductor Corp.
+(C) 2013-2014 NVIDIA Corporation
+----------------------------------------------------------------
+
+  ***********       IMPORTANT RELEASE NOTES         ************
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_NO_DEPRECATED undefined.
+  See http://www.eda.org/svdb/view.php?id=3313 for more details.
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_OBJECT_DO_NOT_NEED_CONSTRUCTOR undefined.
+  See http://www.eda.org/svdb/view.php?id=3770 for more details.
+
+      (Specify +UVM_NO_RELNOTES to turn off this notice)
+
+UVM_INFO @ 0: reporter [RNTST] Running test base_test...
+UVM_INFO /space/users/vasilist/ALU_TESTING/testbench/env/alu_env.sv(35) @ 0: uvm_test_top.m_env [alu_env] In build_phase
+UVM_INFO /space/users/vasilist/ALU_TESTING/testbench/env/alu_env.sv(56) @ 0: uvm_test_top.m_env [alu_env] In connect_phase
+UVM_INFO /space/users/vasilist/ALU_TESTING/testbench/env/alu_env.sv(67) @ 0: uvm_test_top.m_env [alu_env] Information printed from alu_env::end_of_elaboration_phase method
+UVM_INFO /space/users/vasilist/ALU_TESTING/testbench/env/alu_env.sv(68) @ 0: uvm_test_top.m_env [alu_env] Verbosity threshold is         300
+UVM_INFO /tools/cdnc/xcelium/current/tools/methodology/UVM/CDNS-1.2/sv/src/base/uvm_root.svh(605) @ 0: reporter [UVMTOP] UVM testbench topology:
+--------------------------------------------------------------
+Name                       Type                    Size  Value
+--------------------------------------------------------------
+uvm_test_top               base_test               -     @2024
+  m_env                    alu_env                 -     @2097
+    m_alu_agent            alu_agent               -     @2163
+      analysis_port        uvm_analysis_port       -     @2215
+      m_driver             alu_driver              -     @2332
+        rsp_port           uvm_analysis_port       -     @2434
+        seq_item_port      uvm_seq_item_pull_port  -     @2382
+      m_monitor            alu_monitor             -     @2248
+        analysis_port      uvm_analysis_port       -     @2300
+      m_sequencer          uvm_sequencer           -     @2465
+        rsp_export         uvm_analysis_export     -     @2526
+        seq_item_export    uvm_seq_item_pull_imp   -     @3086
+        arbitration_queue  array                   0     -    
+        lock_queue         array                   0     -    
+        num_last_reqs      integral                32    'd1  
+        num_last_rsps      integral                32    'd1  
+--------------------------------------------------------------
+
+UVM_INFO /tools/cdnc/xcelium/current/tools/methodology/UVM/CDNS-1.2/sv/src/base/uvm_factory.svh(1645) @ 0: reporter [UVM/FACTORY/PRINT] 
+#### Factory Configuration (*)
+
+  No instance or type overrides are registered with this factory
+
+All types registered with the factory: 62 total
+  Type Name
+  ---------
+  alu_agent
+  alu_driver
+  alu_env
+  alu_monitor
+  apb_transaction
+  base_seq
+  base_test
+  cdns_sst2_uvm_recorder
+  cdns_uvm_sst2_tr_stream
+  random_seq
+  virtual_sequence
+(*) Types with no associated type name will be printed as <unknown>
+
+####
+
+
+UVM_INFO /space/users/vasilist/ALU_TESTING/testbench/agent/alu_driver.sv(18) @ 0: uvm_test_top.m_env.m_alu_agent.m_driver [alu_driver] run_phase
+UVM_INFO /space/users/vasilist/ALU_TESTING/testbench/env/virtual_sequence.sv(37) @ 0: reporter@@vseq [virtual_sequence] Default sequence starting
+
+Message!     [SDI/Verilog]                                                     
+    In $sdi_open, there's already an open SDI recording database.
+This call is ignored.
+Current simulation time = 0                                                                         
+    "/tools/cdnc/xcelium/current/tools/methodology/UVM/CDNS-1.2/additions/sv/cdns_recording.svh", 350: $sdi_open(db_name_l,use_existing_db,use_compression);
+UVM_INFO /space/users/vasilist/ALU_TESTING/testbench/agent/sequences/base_seq.sv(23) @ 0: uvm_test_top.m_env.m_alu_agent.m_sequencer@@vseq.seq [base_seq] Default sequence starting
+UVM_INFO /space/users/vasilist/ALU_TESTING/testbench/agent/alu_driver.sv(35) @ 75000: uvm_test_top.m_env.m_alu_agent.m_driver [alu_driver] req item
+vseq.seq.req
+write   = 'h0  'd0
+op      = 'h0  'd0
+addr    = 'h2  'd2
+data    = 'hc4f225bb  'd3304203707
+ready   = 'hx  'dx
+slv_err = 'hx  'dx
+delay   = 'h19  'd25
+
+UVM_INFO /space/users/vasilist/ALU_TESTING/testbench/agent/sequences/base_seq.sv(31) @ 610000: uvm_test_top.m_env.m_alu_agent.m_sequencer@@vseq.seq [base_seq] Default sequence completed
+UVM_INFO /space/users/vasilist/ALU_TESTING/testbench/env/virtual_sequence.sv(56) @ 610000: reporter@@vseq [virtual_sequence] Default sequence completed
+UVM_INFO /tools/cdnc/xcelium/current/tools/methodology/UVM/CDNS-1.2/sv/src/base/uvm_objection.svh(1271) @ 610000: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+UVM_INFO /tools/cdnc/xcelium/current/tools/methodology/UVM/CDNS-1.2/sv/src/base/uvm_report_catcher.svh(705) @ 610000: reporter [UVM/REPORT/CATCHER] 
+--- UVM Report catcher Summary ---
+
+
+Number of demoted UVM_FATAL reports  :    0
+Number of demoted UVM_ERROR reports  :    0
+Number of demoted UVM_WARNING reports:    0
+Number of caught UVM_FATAL reports   :    0
+Number of caught UVM_ERROR reports   :    0
+Number of caught UVM_WARNING reports :    0
+
+UVM_INFO /tools/cdnc/xcelium/current/tools/methodology/UVM/CDNS-1.2/sv/src/base/uvm_report_server.svh(847) @ 610000: reporter [UVM/REPORT/SERVER] 
+--- UVM Report Summary ---
+
+** Report counts by severity
+UVM_INFO :   16
+UVM_WARNING :    0
+UVM_ERROR :    0
+UVM_FATAL :    0
+** Report counts by id
+[RNTST]     1
+[TEST_DONE]     1
+[UVM/FACTORY/PRINT]     1
+[UVM/RELNOTES]     1
+[UVM/REPORT/CATCHER]     1
+[UVMTOP]     1
+[alu_driver]     2
+[alu_env]     4
+[base_seq]     2
+[virtual_sequence]     2
+
+Simulation complete via $finish(1) at time 610 NS + 70
+/tools/cdnc/xcelium/current/tools/methodology/UVM/CDNS-1.2/sv/src/base/uvm_root.svh:543     $finish;
+xcelium> 
+xcelium> 
+xcelium> 
+xcelium> 
+xcelium> 
 xcelium> ^C
 xcelium> exit
+...Regained control from SimVision
+-------------------------------------
 
 coverage setup:
   workdir  :  ./cov_work
   dutinst  :  top_tb(top_tb)
   scope    :  scope
-  testname :  test_sv-2097018136
+  testname :  test_sv1526353269
 
 coverage files:
   model(design data) :  ./cov_work/scope/icc_033690a8_00000000.ucm (reused)
-  data               :  ./cov_work/scope/test_sv-2097018136/icc_033690a8_00000000.ucd
-TOOL:	xrun(64)	22.03-s002: Exiting on Feb 17, 2026 at 14:19:04 UTC  (total: 00:00:34)
+  data               :  ./cov_work/scope/test_sv1526353269/icc_033690a8_00000000.ucd
+TOOL:	xrun(64)	22.03-s002: Exiting on Feb 18, 2026 at 12:11:55 UTC  (total: 00:21:32)
