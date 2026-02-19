@@ -25,8 +25,8 @@ task read_only_seq::body();
     req = apb_transaction::type_id::create("req");
          start_item(req); 
     if ( !req.randomize() )
-         req.write = 0;
         `uvm_error(get_type_name(), "Failed to randomize transaction")
+         req.write = 0;
         finish_item(req);
     
   end
