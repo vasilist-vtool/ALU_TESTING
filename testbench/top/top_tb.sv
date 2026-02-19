@@ -14,10 +14,12 @@ module top_tb;
   // Configuration object for top-level environment
   alu_config m_config;
 
+
+
   // Test harness
   top_th th();
 
-  
+
 
   initial
   begin
@@ -34,7 +36,6 @@ module top_tb;
 
 
     uvm_config_db #(alu_config)::set(null, "uvm_test_top", "alu_config", m_config);
-
     run_test();
   end
 

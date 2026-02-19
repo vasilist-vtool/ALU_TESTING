@@ -57,9 +57,9 @@ function void alu_agent::connect_phase(uvm_phase phase);
   if (m_config.vif == null)
     `uvm_warning(get_type_name(), "alu virtual interface is not set!")
 
-//   m_monitor.vif      = m_config.vif;
-//   m_monitor.m_config = m_config;
-//   m_monitor.analysis_port.connect(analysis_port);
+m_monitor.vif      = m_config.vif;
+m_monitor.m_config = m_config;
+m_monitor.analysis_port.connect(analysis_port);
 
   if (get_is_active() == UVM_ACTIVE)
   begin
