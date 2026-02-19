@@ -7,12 +7,14 @@ package test_pkg;
 
   import uvm_pkg::*;
 
+  import top_pkg::*;
   import alu_pkg::*;
   import env_pkg::*;
 
   `include "base_test.sv"
   `include "random_test.sv"
   `include "write_only_test.sv"
+  `include "stress_write_test.sv"
   `include "read_only_test.sv"
 endpackage : test_pkg
 

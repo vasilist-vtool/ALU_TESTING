@@ -13,28 +13,19 @@ class alu_monitor extends uvm_monitor;
 
   uvm_analysis_port #(apb_transaction) analysis_port;
 
+  apb_transaction tx;
+
   extern function new(string name, uvm_component parent);
 
-
-
-virtual function void build_phase (uvm_phase phase);
-      super.build_phase (phase);
-
-      // Create an instance of the analysis port
-      analysis_port = new ("analysis_port", this);
-
-      // Get virtual interface handle from the configuration DB
-    //if (! uvm_config_db #(virtual alu_if) :: get (this, "", "alu_if", vif)) begin
-    // `uvm_error (get_type_name (), "DUT interface not found")
-     // end
+  virtual function void build_phase (uvm_phase phase);
+    super.build_phase (phase);
+    // Create an instance of the analysis port
+    analysis_port = new ("analysis_port", this);
    endfunction
 
 
    virtual task run_phase (uvm_phase phase);
-      apb_transaction  tx = apb_transaction::type_id::create ("tx", this);
-      
       forever begin
-
         do_monitor();
       end
    endtask
@@ -42,30 +33,46 @@ virtual function void build_phase (uvm_phase phase);
 
 
 task do_monitor();
-  
-  apb_transaction tx;
-
-       wait(vif.rst_n);
-
-      if (vif.psel && vif.penable && vif.ready) begin
-      tx.addr    <= vif.paddr;
-      tx.write   <= vif.pwrite;
-      tx.ready   <= vif.ready;
-      tx.slv_err <= vif.slv_err;
-
-      if (vif.pwrite)
-        tx.data = vif.pwdata;
-      else
-        tx.data = vif.prdata;
-
-      analysis_port.write(tx);
-
+  tx = apb_transaction::type_id::create ("tx", this);
+  forever begin
+    if(vif.rst_n === 1) break;
+    @(posedge vif.clk);
   end
+
+  tx.delay = 0;
+  tx.wait_states = 0;
+
+  forever begin
+    if(vif.psel === 1) break;
+    @(posedge vif.clk);
+    tx.delay++;
+  end
+
+  @(posedge vif.clk); //Wait for penable
+
+  forever begin
+    if(vif.ready === 1) break;
+    @(posedge vif.clk);
+    tx.wait_states++;
+  end
+
+  tx.addr    = vif.paddr;
+  tx.write   = vif.pwrite;
+  tx.ready   = vif.ready;
+  tx.slv_err = vif.slv_err;
+
+  if (vif.pwrite) begin
+    tx.data = vif.pwdata;
+  end
+  else begin
+    tx.data = vif.prdata;
+  end
+
+  @(posedge vif.clk); //Wait one cycle for setup phase
+
+  analysis_port.write(tx);
+
 endtask
-
-
-
-
 
 endclass : alu_monitor 
 

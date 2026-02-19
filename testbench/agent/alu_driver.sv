@@ -30,7 +30,7 @@ class alu_driver extends uvm_driver #(apb_transaction);
   endtask : run_phase
 
   task do_drive();
-    wait(vif.rst_n == 1);
+    wait(vif.rst_n === 1);
     seq_item_port.get_next_item(req);
     `uvm_info(get_type_name(), {"req item\n",req.sprint}, UVM_HIGH)
     
@@ -56,6 +56,8 @@ class alu_driver extends uvm_driver #(apb_transaction);
     while (!vif.ready) begin
       @(posedge vif.clk);
     end
+
+    
     
     seq_item_port.item_done();
   endtask

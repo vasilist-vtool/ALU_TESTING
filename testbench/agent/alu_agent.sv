@@ -43,6 +43,7 @@ if (!uvm_config_db #(alu_config)::get(this, "", "config", m_config))
 
 m_monitor     = alu_monitor    ::type_id::create("m_monitor", this);
 
+
   if (get_is_active() == UVM_ACTIVE)
   begin
     m_driver    = alu_driver     ::type_id::create("m_driver", this);
