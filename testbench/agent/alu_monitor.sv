@@ -25,14 +25,17 @@ class alu_monitor extends uvm_monitor;
 
 
    virtual task run_phase (uvm_phase phase);
-      forever begin
-        do_monitor();
+    forever begin
+    fork
+      monitor_transactions();
+      monitor_reset();
+    join
       end
    endtask
 
 
 
-task do_monitor();
+task monitor_transactions();
   tx = apb_transaction::type_id::create ("tx", this);
   forever begin
     if(vif.rst_n === 1) break;
@@ -73,6 +76,35 @@ task do_monitor();
   analysis_port.write(tx);
 
 endtask
+
+task monitor_reset();
+
+
+  forever begin
+
+    
+    @(negedge vif.rst_n);
+
+    `uvm_info("MONITOR", "Reset asserted", UVM_MEDIUM)
+
+    @(posedge vif.rst_n);
+
+    `uvm_info("MONITOR", "Reset deasserted", UVM_MEDIUM)
+  end
+endtask
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 endclass : alu_monitor 
 
