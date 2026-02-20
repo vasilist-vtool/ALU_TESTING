@@ -25,32 +25,44 @@ class alu_monitor extends uvm_monitor;
     analysis_port = new ("analysis_port", this);
   endfunction
 
+task next_trans();
+  tx = apb_transaction::type_id::create ("tx", this);
+  tx.state = ALU_TX_STATE_IDLE;
+  forever begin
+    if(vif.rst_n === 1) break;
+      @(posedge vif.clk);
+  end
+  do_monitor();
+endtask
+
+task next_rst();
+  forever begin
+    @(negedge vif.clk);
+    if(vif.rst_n === 0) begin
+      break;
+    end
+  end
+endtask
+
 
   virtual task run_phase (uvm_phase phase);
     forever begin
+      process p[2];
       fork : alu_monitor_running
-
+        
         begin
-          tx = apb_transaction::type_id::create ("tx", this);
-          tx.state = ALU_TX_STATE_IDLE;
-          forever begin
-            if(vif.rst_n === 1) break;
-              @(posedge vif.clk);
-          end
-          do_monitor();
+          p[0] = process::self();
+          next_trans();
         end
 
         begin
-          forever begin
-            @(negedge vif.clk);
-            if(vif.rst_n === 0) begin
-              break;
-            end
-          end
+          p[1] = process::self();          
+          next_rst();
         end
 
       join_any
-      disable alu_monitor_running;
+      p[0].kill();
+      p[1].kill();
       if (tx.state != ALU_TX_STATE_IDLE) begin
         analysis_port.write(tx);
       end

@@ -10,6 +10,8 @@ class alu_driver extends uvm_driver #(apb_transaction);
 
   alu_config     m_config;
 
+  bit done_pending = 0;
+
   function new(string name, uvm_component parent);
     super.new(name, parent);
   endfunction : new
@@ -17,29 +19,33 @@ class alu_driver extends uvm_driver #(apb_transaction);
   task run_phase(uvm_phase phase);
     `uvm_info(get_type_name(), "run_phase", UVM_HIGH)
     forever begin
+      process p[2];
       fork : alu_driver_running
         begin
+          p[0] = process::self();
           do_drive();
         end
         begin
+          p[1] = process::self();
           do_reset();
         end
       join_any
-      disable alu_driver_running;
+      p[0].kill();
+      p[1].kill();
+      if(done_pending == 1) begin
+        seq_item_port.item_done();
+        done_pending = 0;
+      end
     end
   endtask : run_phase
 
-  task do_drive();
-    wait(vif.rst_n === 1);
-    seq_item_port.get_next_item(req);
-    `uvm_info(get_type_name(), {"req item\n",req.sprint}, UVM_HIGH)
-    
+  task drive_body();
     vif.psel    <= 0;
     vif.penable <= 0;
     
     repeat (req.delay) @(posedge vif.clk);
 
-  //SETUP
+    //SETUP
     vif.psel    <= 1;
     vif.penable <= 0;
     vif.pwrite  <= req.write;
@@ -56,10 +62,14 @@ class alu_driver extends uvm_driver #(apb_transaction);
     while (!vif.ready) begin
       @(posedge vif.clk);
     end
+  endtask;
 
-    
-    
-    seq_item_port.item_done();
+  task do_drive();
+    wait(vif.rst_n === 1);
+    seq_item_port.get_next_item(req);
+    done_pending = 1;
+    `uvm_info(get_type_name(), {"req item\n",req.sprint}, UVM_HIGH)
+    drive_body();
   endtask
 
   task do_reset();

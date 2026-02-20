@@ -19,6 +19,11 @@ module top_th;
     #75
     rst_n = 1;
 
+ // #405
+ //    rst_n = 0;
+ //    #20
+ // rst_n = 1;
+
   end
 
   assign alu_if_0.clk    =  clk;
