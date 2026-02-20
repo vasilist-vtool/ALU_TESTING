@@ -179,7 +179,7 @@ class reg_block extends uvm_reg_block;
 
 	rand ctl_reg   ctl;      // WO
 	rand data0_reg   data0;   // WO
-   rand data1_reg  data1;    // WO
+    rand data1_reg  data1;    // WO
 	rand result_reg  result;  //RO
 	rand monitor_reg monitor; //RO
 

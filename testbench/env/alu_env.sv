@@ -12,6 +12,10 @@ class alu_env extends uvm_env;
   alu_agent     m_alu_agent;   
   //alu_coverage  m_alu_coverage;
   alu_config    m_config;
+  reg_block     reg_model; 
+  reg2alu_adapter adapter;
+
+
      
   
 
@@ -42,11 +46,16 @@ function void alu_env::build_phase(uvm_phase phase);
   uvm_config_db #(alu_config)::set(this, "m_alu_agent", "config", m_config);
   if (m_config.is_active == UVM_ACTIVE )
     uvm_config_db #(alu_config)::set(this, "m_alu_agent.m_sequencer", "config", m_config);
-  uvm_config_db #(alu_config)::set(this, "m_alu_coverage", "config", m_config);
+    uvm_config_db #(alu_config)::set(this, "m_alu_coverage", "config", m_config);
+	  uvm_config_db #(reg_block):: set(null, "*", "reg_model", reg_model);
 
-
+  reg_model = reg_block::type_id::create("reg_model", this);
+  adapter = reg2alu_adapter::type_id::create("adapter", this);
   m_alu_agent    = alu_agent   ::type_id::create("m_alu_agent", this);
   //m_alu_coverage = alu_coverage::type_id::create("m_alu_coverage", this);
+    
+  
+  reg_model.build();
 
 
 endfunction : build_phase
@@ -54,6 +63,8 @@ endfunction : build_phase
 
 function void alu_env::connect_phase(uvm_phase phase);
   `uvm_info(get_type_name(), "In connect_phase", UVM_HIGH)
+
+  reg_model.default_map.set_sequencer((m_alu_agent.m_sequencer),adapter);
 
   //m_alu_agent.analysis_port.connect(m_alu_coverage.analysis_export);
 

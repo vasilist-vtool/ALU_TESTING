@@ -62,7 +62,7 @@ class alu_driver extends uvm_driver #(apb_transaction);
     while (!vif.ready) begin
       @(posedge vif.clk);
     end
-  endtask;
+  endtask
 
   task do_drive();
     wait(vif.rst_n === 1);
