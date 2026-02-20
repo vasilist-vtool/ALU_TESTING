@@ -15,32 +15,52 @@ class alu_monitor extends uvm_monitor;
 
   apb_transaction tx;
 
-  extern function new(string name, uvm_component parent);
+  function new(string name, uvm_component parent);
+    super.new(name, parent);
+  endfunction : new
 
   virtual function void build_phase (uvm_phase phase);
     super.build_phase (phase);
     // Create an instance of the analysis port
     analysis_port = new ("analysis_port", this);
-   endfunction
+  endfunction
 
 
-   virtual task run_phase (uvm_phase phase);
+  virtual task run_phase (uvm_phase phase);
     forever begin
-    fork
-      monitor_transactions();
-      monitor_reset();
-    join
+      fork : alu_monitor_running
+
+        begin
+          tx = apb_transaction::type_id::create ("tx", this);
+          tx.state = ALU_TX_STATE_IDLE;
+          forever begin
+            if(vif.rst_n === 1) break;
+              @(posedge vif.clk);
+          end
+          do_monitor();
+        end
+
+        begin
+          forever begin
+            @(negedge vif.clk);
+            if(vif.rst_n === 0) begin
+              break;
+            end
+          end
+        end
+
+      join_any
+      disable alu_monitor_running;
+      if (tx.state != ALU_TX_STATE_IDLE) begin
+        analysis_port.write(tx);
       end
-   endtask
+    end
+  endtask
 
+task do_monitor();
+  
+  tx.state = ALU_TX_STATE_ACTIVE;
 
-
-task monitor_transactions();
-  tx = apb_transaction::type_id::create ("tx", this);
-  forever begin
-    if(vif.rst_n === 1) break;
-    @(posedge vif.clk);
-  end
 
   tx.delay = 0;
   tx.wait_states = 0;
@@ -73,46 +93,11 @@ task monitor_transactions();
 
   @(posedge vif.clk); //Wait one cycle for setup phase
 
-  analysis_port.write(tx);
+  tx.state = ALU_TX_STATE_COMPLETED;
 
 endtask
-
-task monitor_reset();
-
-
-  forever begin
-
-    
-    @(negedge vif.rst_n);
-
-    `uvm_info("MONITOR", "Reset asserted", UVM_MEDIUM)
-
-    @(posedge vif.rst_n);
-
-    `uvm_info("MONITOR", "Reset deasserted", UVM_MEDIUM)
-  end
-endtask
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 endclass : alu_monitor 
-
-
-function alu_monitor::new(string name, uvm_component parent);
-  super.new(name, parent);
-endfunction : new
-
 
 `endif
 

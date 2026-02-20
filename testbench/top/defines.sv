@@ -11,6 +11,7 @@
 
 
 typedef enum {read, write} wr_rd_type;
+
 //for coverage
 typedef enum {write_to_read_register,
               read_from_write_register,
@@ -34,6 +35,11 @@ typedef enum  { apb_write,
 
 typedef logic[`ADDR_W : 0] address_t;
 typedef logic[`APB_BUS_SIZE-1 : 0] data_t;
+
+typedef enum  { ALU_TX_STATE_IDLE,
+                ALU_TX_STATE_ACTIVE,
+                ALU_TX_STATE_COMPLETED
+} alu_tx_state;
 
 int NUM_TRANSACTIONS = 10;
 int MAX_DELAY = 10;

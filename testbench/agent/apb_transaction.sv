@@ -8,13 +8,15 @@ class apb_transaction extends uvm_sequence_item;
     rand address_t addr;
     rand int unsigned delay;
 
+    alu_tx_state state;
+
     logic ready;
     int unsigned wait_states;
     logic slv_err;
 
     constraint c_addr {addr inside{[0:4]};}
     constraint c_delay {delay inside{[MIN_DELAY:MAX_DELAY]};}
-    constraint c_addr_wo {addr inside{[0:2]};}
+    //constraint c_addr_wo {addr inside{[0:2]};}
 
 function new(string name ="");
     super.new(name);

@@ -6,20 +6,23 @@ class ctl_reg extends uvm_reg;
 	rand uvm_reg_field operation;
  	rand uvm_reg_field reserved;
 	rand uvm_reg_field id;
+	rand uvm_reg_field reserved_2;
 //Fctory Register
 
 
 //Constructor
 	function new(string name = "ctl_reg");
-		super.new(name, 16, build_coverage(UVM_NO_COVERAGE));
+		super.new(name, 32, build_coverage(UVM_NO_COVERAGE));
 	endfunction: new
 
 // Build all register field objects
   virtual function void build();
     start    = uvm_reg_field::type_id::create("start");
     operation  = uvm_reg_field::type_id::create("operation");
-	 reserved = uvm_reg_field::type_id::create("reserved");
+	reserved = uvm_reg_field::type_id::create("reserved");
     id     = uvm_reg_field::type_id::create("id");
+	reserved_2     = uvm_reg_field::type_id::create("id");
+
 
  //Field configuration(parent, size, lsb_pos, access, volatile, reset, has_reset, is_rand, individually_accessible);
     start.configure    (this, 1, 0, "WO", 1, 1'h0, 1, 1, 1);
@@ -43,12 +46,12 @@ class data0_reg extends uvm_reg;
 	`uvm_object_utils(data0_reg)
 
 	rand uvm_reg_field data0;
-    uvm_reg_field reserved;
+    rand uvm_reg_field reserved;
 
     
 //Constructor
 	function new(string name = "data0_reg");
-		super.new(name, 16, build_coverage(UVM_NO_COVERAGE));
+		super.new(name, 32, build_coverage(UVM_NO_COVERAGE));
 	endfunction: new
 
 // Build all register field objects
@@ -58,7 +61,7 @@ class data0_reg extends uvm_reg;
 
   //Field configuration(parent, size, lsb_pos, access, volatile, reset, has_reset, is_rand, individually_accessible);
 
-	this.data0.configure   (this, 16, 0, "WO", 1, 16'h0, 1, 1, 1);
+	this.data0.configure   (this, 16, 0, "WO", 0, 16'h0, 1, 1, 1);
     this.reserved.configure(this, 16, 16, "RO", 0, 16'h0, 1, 0, 0);
  //For backdorr access
 	add_hdl_path_slice( .name("data_0_out"), .offset(0), .size(16));
@@ -73,16 +76,19 @@ class data1_reg extends uvm_reg;
 //Fctory Register
 	`uvm_object_utils(data1_reg)
 	rand uvm_reg_field data1;
+	rand uvm_reg_field reserved;
+
 
 
 //Constructor
 	function new(string name = "data1_reg");
-		super.new(name, 16, build_coverage(UVM_NO_COVERAGE));
+		super.new(name, 32, build_coverage(UVM_NO_COVERAGE));
 	endfunction: new
 
 // Build all register field objects
   virtual function void build();
  	this.data1 = uvm_reg_field::type_id::create("data1"); 
+	this.reserved = uvm_reg_field::type_id::create("reserved"); 
 
  //Field configuration(parent, size, lsb_pos, access, volatile, reset, has_reset, is_rand, individually_accessible);
 	this.data1.configure(this, 16, 0, "WO", 0, 16'h0, 1, 1, 1);
@@ -100,19 +106,29 @@ endclass
 class result_reg extends uvm_reg;
 	//Fctory Register
 	`uvm_object_utils(result_reg)
-rand uvm_reg_field result;
+	rand uvm_reg_field result;
+	rand uvm_reg_field c_out;
+	rand uvm_reg_field id;
+	rand uvm_reg_field reserved;
 
 //Constructor
 	function new(string name = "result_reg");
-		super.new(name, 25, build_coverage(UVM_NO_COVERAGE));
+		super.new(name, 32, build_coverage(UVM_NO_COVERAGE));
 	endfunction: new
 
 // Build all register field objects
   virtual function void build();
- 	this.result = uvm_reg_field::type_id::create("result"); 
+ 	this.result = uvm_reg_field::type_id::create("result");
+	this.c_out = uvm_reg_field::type_id::create("c_out"); 
+	this.id = uvm_reg_field::type_id::create("id"); 
+	this.reserved = uvm_reg_field::type_id::create("reserved"); 
 
  //Field configuration(parent, size, lsb_pos, access, volatile, reset, has_reset, is_rand, individually_accessible);
-	this.result.configure(this, 25, 0, "RO", 0, 25'h0, 1, 1, 1);
+	this.result.configure	(this, 16, 0, "RO", 0, 16'h0, 1, 1, 1);
+	this.c_out.configure	(this, 1, 16, "RO", 0, 1'h0, 1, 1, 1);
+	this.id.configure		(this, 8, 17, "RO", 0, 8'h0, 1, 1, 1);
+	this.reserved.configure (this, 7, 25, "RO", 0, 7'h0, 1, 1, 1);
+
   endfunction
 endclass
 
@@ -125,20 +141,30 @@ class monitor_reg extends uvm_reg;
 //Fctory Register
 	`uvm_object_utils(monitor_reg)
 	
-	rand uvm_reg_field monitor;
+	rand uvm_reg_field empty_out;
+	rand uvm_reg_field full_out;
+	rand uvm_reg_field reserved;
+
+
 
 
 //Constructor
 	function new(string name = "monitor_reg");
-		super.new(name, 25, build_coverage(UVM_NO_COVERAGE));
+		super.new(name, 32, build_coverage(UVM_NO_COVERAGE));
 	endfunction: new
 
 // Build all register field objects
   virtual function void build();
- 	this.monitor = uvm_reg_field::type_id::create("monitor"); 
+ 	this.empty_out = uvm_reg_field::type_id::create("empty_out");
+	this.full_out = uvm_reg_field::type_id::create("full_out"); 
+  	this.reserved = uvm_reg_field::type_id::create("reserved"); 
+
 
  //Field configuration(parent, size, lsb_pos, access, volatile, reset, has_reset, is_rand, individually_accessible);
-	this.monitor.configure(this, 25, 0, "RO", 0, 25'h0, 1, 1, 1);
+	this.empty_out.configure(this, 1, 0, "RO", 0, 1'h1, 1, 1, 1);
+	this.full_out.configure(this, 1, 1, "RO", 0, 1'h0, 1, 1, 1);
+	this.reserved.configure(this, 30, 2, "RO", 0, 30'h0, 1, 1, 1);
+
   endfunction
 endclass
 
