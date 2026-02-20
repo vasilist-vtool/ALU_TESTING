@@ -11,8 +11,10 @@ package alu_pkg;
 `include "alu_driver.sv"
 `include "alu_monitor.sv"
 `include "alu_sequencer.sv"
+`include "reg2bus_adapter.sv"
 //   `include "alu_coverage.sv"
 `include "alu_agent.sv"
 `include "alu_seq_lib.sv"
+
 
 endpackage : alu_pkg

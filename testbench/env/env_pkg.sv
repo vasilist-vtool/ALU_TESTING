@@ -7,7 +7,7 @@ package env_pkg;
   import uvm_pkg::*;
 
   import alu_pkg::*;
-  
+  `include "reg_block.sv"
   `include "virtual_sequence.sv"
   `include "alu_env.sv"
 

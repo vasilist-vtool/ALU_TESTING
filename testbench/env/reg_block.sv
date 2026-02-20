@@ -25,10 +25,12 @@ class ctl_reg extends uvm_reg;
 
 
  //Field configuration(parent, size, lsb_pos, access, volatile, reset, has_reset, is_rand, individually_accessible);
-    start.configure    (this, 1, 0, "WO", 1, 1'h0, 1, 1, 1);
-    operation.configure(this, 2, 1, "WO", 0, 2'h0, 1, 1, 1);
-	reserved.configure (this, 5, 3, "WO", 0, 5'h0, 1, 1, 1);
-    id.configure       (this, 8, 8, "WO", 0, 8'h0, 1, 1, 1);
+    start.configure     (this, 1, 0, "WO", 1, 1'h0, 1, 1, 1);
+    operation.configure (this, 2, 1, "WO", 0, 2'h0, 1, 1, 1);
+	reserved.configure  (this, 5, 3, "WO", 0, 5'h0, 1, 1, 1);
+    id.configure        (this, 8, 8, "WO", 0, 8'h0, 1, 1, 1);
+	reserved_2.configure(this, 16, 16, "WO", 0, 16'h0, 1, 1, 1);
+
 
 //For backdoor access
 	add_hdl_path_slice(.name("start_bit_pos"),.offset(0),.size(1));
